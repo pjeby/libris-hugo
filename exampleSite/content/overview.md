@@ -17,5 +17,5 @@ menus:
   layouts:
     weight: 1
     title: Overview
-template: overview
+layout: overview
 ---

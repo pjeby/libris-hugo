@@ -1,7 +1,7 @@
 ---
 title: Typography
 weight: 1
-template: docs
+layout: docs
 ---
 
 <div class="note">

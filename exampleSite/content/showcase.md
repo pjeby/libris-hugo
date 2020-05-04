@@ -24,5 +24,5 @@ menus:
   layouts:
     weight: 2
     title: Showcase
-template: showcase
+layout: showcase
 ---

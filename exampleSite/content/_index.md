@@ -86,5 +86,5 @@ menus:
   main:
     weight: 1
     title: Home
-template: home
+layout: home
 ---
