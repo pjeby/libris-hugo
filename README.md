@@ -1,44 +1,7 @@
 # Libris
 
-A documentation theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/libris/blue)
+A port of the Stackbit Libris theme for use with Hugo. [Live Demo](https://themes.stackbit.com/demos/libris/blue)
 
-[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-libris)
-
-### Turn themes into CMS-powered websites
-
-[Stackbit](https://www.stackbit.com/) provisions your theme's content model with a growing selection of headless CMS and pulls the content for you in the format your static site generator expects it. This is powered by a single config file, [stackbit.yaml](https://docs.stackbit.com/uniform/stackbit-yaml/), which defines a [Uniform theme model](https://docs.stackbit.com/uniform/) and enables integration with CMS like Contentful, DatoCMS, Forestry, NetlifyCMS, etc.
-
-### One theme codebase converts to multiple Static Site Generators
-
-This theme in particular is written in [Unibit](https://docs.stackbit.com/unibit/), a superset of static site generators. Unibit's powerful transpiling engine enables you to write once and stay SSG agnostic. Themes will automatically work with new generators as they are added and can currently convert to Jekyll, Hugo & Gatsby.
-
-## Quickstart
-
-### Unibit CLI
-
-Develop locally using the Unibit CLI. 
-
-```
-npm install -g @stackbit/unibit
-```
-
-Start the local development server. 
-
-```
-unibit develop
-```
-
-Compile a production build into the `public` folder.
-
-```
-unibit build
-```
-
-### CodeSandbox
-
-Develop this theme in the browser using CodeSandbox.
-
-[Fork in CodeSandbox](https://codesandbox.io/s/github/stackbithq/stackbit-theme-libris)
 
 # Theme Documentation
 
@@ -52,7 +15,7 @@ All documentation pages must be located inside the `content/docs` folder. You ca
 
 Documentation pages should contain the following front matter. `title` and `template` are required. 
 
-```
+```yaml
 ---
 - `title`: apart from defining the page title, docs layout use this field to
   label navigation menu items.
@@ -87,7 +50,7 @@ sections:
   - faq
   - community
 ```
- 
+
 ### Example
 
 Here is an example to a folder structure, several documentation pages and
@@ -117,19 +80,23 @@ documentation sections:
 
 `content/docs/guides/overview.md`:
 
-    ---
-    title: Overview
-    weight: 1           # position guides/overview first
-    template: docs
-    ---
-   
+```yaml
+---
+title: Overview
+weight: 1           # position guides/overview first
+template: docs
+---
+```
+
 `content/docs/guides/features.md`:
 
-    ---
-    title: Features
-    weight: 2           # position guides/features second
-    template: docs
-    ---
+```yaml
+---
+title: Features
+weight: 2           # position guides/features second
+template: docs
+---
+```
 
 `data/doc_sections.yml`:
 
@@ -141,14 +108,14 @@ sections:
   - faq
 ```
 
-![Navigation Example](docs/libris-navigation-example.png "Navigation Example")
+![Navigation Example](images/libris-navigation-example.png "Navigation Example")
 
 
 ### Callouts
 
 To add a callout to your documentation, simply use the following html markup:
 
-```
+```html
 <div class="important">
   <strong>Important:</strong> 
   This is the "Important" callout block of text. It indicates a warning or caution.
@@ -156,7 +123,7 @@ To add a callout to your documentation, simply use the following html markup:
 </div>
 ```
 
-```
+```html
 <div class="note">
   <strong>Note:</strong> 
   This is the "Note" callout block of text. It signifies a general note.
@@ -167,7 +134,7 @@ To add a callout to your documentation, simply use the following html markup:
 
 To enable syntax highlighting in your code blocks, add a language identifier. For example, to syntax highlight JavaScript code, specify `javascript` next to the tick marks before the fenced code block:
 
-````
+~~~md
 ```javascript
 if (condition) {
   code to run if condition is true
@@ -175,7 +142,7 @@ if (condition) {
   run some other code instead
 }
 ```
-````
+~~~
 
 ## Editing the Homepage
 
@@ -187,23 +154,27 @@ The items of the main menu located at the top can be defined either inside the p
 
 To add a page menu item, you should define the `menus` parametter in the front matter of the page. For instance:
 
-    ---
-    title: Welcome to Libris
-    menus:
-      main:
-        weight: 2
-        title: Docs
-    template: docs
-    ---
+```yaml
+---
+title: Welcome to Libris
+menus:
+  main:
+    weight: 2
+    title: Docs
+template: docs
+---
+```
 
 To add a global menu item, you should define it inside the root `menus` field inside `config.yml`. For instance:
 
-    menus:
-      main:
-        - identifier: github
-          title: GitHub
-          url: "https://github.com/"
-          weight: 6
+```yaml
+menus:
+  main:
+    - identifier: github
+      title: GitHub
+      url: "https://github.com/"
+      weight: 6
+```
 
 ## Additional Templates
 
