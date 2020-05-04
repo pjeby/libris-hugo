@@ -1,10 +1,8 @@
-{% extends "body.html" %}
+{{ define "content" }}
 
-{% block content %}
+{{ range $section := .Params.sections }}
+  {{ $include_dict := dict "section" $section "Site" $.Site }}
+  {{ partial $section.component $include_dict }}
+{{ end }}
 
-{% for section in page.params.sections %}
-  {% set include_dict = {'section': section, 'site': site} %}
-  {% include section.component %}
-{% endfor %}
-
-{% endblock %}
+{{ end }}

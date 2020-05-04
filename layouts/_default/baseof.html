@@ -1,11 +1,16 @@
-{% extends "base.html" %}
-
-{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "html_head.html" . }}
+</head>
+<body>
 <div id="page" class="site">
-  {% include "header.html" %}
+{{ partial "header.html" . }}
   <main id="content" class="site-content">
-    {% block content %}{% endblock %}
+    {{ block "content" . }}{{ end }}
   </main><!-- .site-content -->
-  {% include "footer.html" %}
+  {{ partial "footer.html" . }}
 </div><!-- .site -->
-{% endblock %}
+{{ partial "post_body.html" . }}
+</body>
+</html>

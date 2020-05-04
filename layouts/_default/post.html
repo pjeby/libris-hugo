@@ -1,28 +1,26 @@
-{% extends "body.html" %}
-
-{% block content %}
+{{ define "content" }}
 
   <article class="post post-full">
     <header class="post-header bg-gradient outer">
-      {% if page.params.content_img_path %}
-      <div class="bg-img" style="background-image: url('{{ page.params.content_img_path | relative_url }}')"></div>
-      {% endif %}
+      {{ if .Params.content_img_path }}
+      <div class="bg-img" style="background-image: url('{{ .Params.content_img_path | relURL }}')"></div>
+      {{ end }}
       <div class="inner-small">
         <div class="post-meta">
-          <time class="published" datetime="{{page.date | date_format("%Y-%m-%d %H:%M") }}">{{ page.date | date_format("%B %d, %Y") }}</time>
+          <time class="published" datetime="{{ .Date | dateFormat "2006-01-02 15:04" }}">{{ .Date | dateFormat "January 02, 2006" }}</time>
         </div><!-- .post-meta -->
-        <h1 class="post-title">{{ page.params.title }}</h1>
-        {% if page.params.subtitle %}
+        <h1 class="post-title">{{ .Params.title }}</h1>
+        {{ if .Params.subtitle }}
         <div class="post-subtitle">
-          {{ page.params.subtitle | safe }}
+          {{ .Params.subtitle | safeHTML }}
         </div><!-- .post-subtitle -->
-        {% endif %}
+        {{ end }}
       </div><!-- .inner-small -->
     </header><!-- .post-header -->
     <div class="outer">
       <div class="inner-medium">
         <div class="post-content">
-          {{ page.content }}
+          {{ .Content }}
         </div><!-- .post-content -->
       </div><!-- .inner-medium -->
     </div><!-- .outer-->
@@ -53,4 +51,4 @@
   </div>
   -->
 
-{% endblock %}
+{{ end }}

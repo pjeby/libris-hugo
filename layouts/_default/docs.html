@@ -1,34 +1,32 @@
-{% extends "body.html" %}
-
-{% block content %}
+{{ define "content" }}
 
   <div class="outer">
     <div class="inner">
       <div class="docs-content">
-        {% set include_dict = {"page": page, "site": site} %}
-        {% include "docs_menu.html" %}
+        {{ $include_dict := dict "page" . "Site" .Site }}
+        {{ partial "docs_menu.html" $include_dict }}
         <article class="post type-docs">
           <div class="post-inside">
             <header class="post-header">
-              <h1 class="post-title line-left">{{ page.params.title }}</h1>
+              <h1 class="post-title line-left">{{ .Params.title }}</h1>
             </header><!-- .post-header -->
             <div class="post-content">
-              {{ page.content }}
-              {% set root_page_path = site.data.doc_sections.root_folder | append("index.md") %}
-              {% set current_page_path = "/" | append(page.relPath) %}
-              {% if root_page_path != current_page_path %}
-                {% set child_pages_path = "/" | append(page.relDir) %}
-                {% set child_pages = getPages(child_pages_path) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
-                {% set child_count = child_pages | length %}
-                {% set has_children = true if child_count > 0 else false %}
-                {% if has_children %}
+              {{ .Content }}
+              {{ $root_page_path := print .Site.Data.doc_sections.root_folder "_index.md" }}
+              {{ $current_page_path := print "/" .File.Path }}
+              {{ if ne $root_page_path $current_page_path }}
+                {{ $child_pages_path := print "/" (.Dir | replaceRE "/$" "") }}
+                {{ $child_pages := (where ((.Site.GetPage "section" $child_pages_path).Pages) "File.LogicalName" "!=" "_index.md").ByWeight }}
+                {{ $child_count := $child_pages | len }}
+                {{ $has_children := cond (gt $child_count 0) true false }}
+                {{ if $has_children }}
                   <ul class="docs-section-items">
-                    {% for child_page in child_pages %}
-                    <li class="docs-section-item"><a href="{{ child_page.url | relative_url }}" class="docs-item-link">{{ child_page.title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>
-                    {% endfor %}
+                    {{ range $child_page := $child_pages }}
+                    <li class="docs-section-item"><a href="{{ $child_page.RelPermalink }}" class="docs-item-link">{{ $child_page.Title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>
+                    {{ end }}
                   </ul><!-- .docs-section-pages -->
-                {% endif %}
-              {% endif %}
+                {{ end }}
+              {{ end }}
             </div><!-- .post-content -->
           </div><!-- .post-inside -->
         </article><!-- .post -->
@@ -41,4 +39,4 @@
     </div><!-- .inner-->
   </div><!-- .outer -->
 
-{% endblock %}
+{{ end }}
