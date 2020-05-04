@@ -3,7 +3,7 @@ title: Welcome to Libris
 menus:
   main:
     weight: 2
-    title: Docs
+    name: Docs
 layout: docs
 ---
 

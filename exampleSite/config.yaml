@@ -20,14 +20,14 @@ params:
       sass:
         accent1: "#8e2de2"
         accent2: "#4a00e0"
-menus:
+menu:
   main:
     - identifier: layouts
-      title: Sample Layouts
+      name: Sample Layouts
       url: "#"
       weight: 5
     - identifier: github
-      title: GitHub
+      name: GitHub
       url: "https://github.com/"
       weight: 6
 sass:

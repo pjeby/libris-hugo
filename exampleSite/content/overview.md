@@ -13,9 +13,10 @@ sections:
     actions:
       - label: Get Started
         url: "/docs/getting-started/index.html"
-menus:
-  layouts:
+menu:
+  main:
     weight: 1
-    title: Overview
+    name: Overview
+    parent: layouts
 layout: overview
 ---
