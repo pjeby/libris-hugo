@@ -30,6 +30,16 @@ menu:
       name: GitHub
       url: "https://github.com/"
       weight: 6
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+disableKinds:
+  - RSS
+  - taxonomyTerm
+
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css
