@@ -20,7 +20,7 @@
           {{ $child_count := $child_pages | len }}
           {{ $has_children := cond (gt $child_count 0) true false }}
           {{ $is_current_page := cond (eq $page.File.Path $section_page.File.Path) true false }}
-          {{ $is_active := cond (or (eq ($page.Dir | replaceRE "/$" "") ($section_page.Dir | replaceRE "/$" "")) (eq $page.File.Path $section_page.File.Path)) true false }}
+          {{ $is_active := cond (or (eq ($page.File.Dir | replaceRE "/$" "") ($section_page.File.Dir | replaceRE "/$" "")) (eq $page.File.Path $section_page.File.Path)) true false }}
           <li class="toc-item{{ if $has_children }} has-children{{ end }}{{ if $is_current_page }} current{{ end }}{{ if $is_active }} active{{ end }}">
             <a href="{{ $section_page.RelPermalink }}">{{ $section_page.Title }}</a>
             {{ if $has_children }}
