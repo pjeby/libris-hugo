@@ -1,5 +1,5 @@
 <div class="block-item-cta">
-  {% for action in include_dict.actions %}
-  <a href="{{ action.url | relative_url }}">{{ action.label }} <span class="icon-arrow-right" aria-hidden="true"></span></a>
-  {% endfor %}
+  {{ range $action := .actions }}
+  <a href="{{ $action.url | relURL }}">{{ $action.label }} <span class="icon-arrow-right" aria-hidden="true"></span></a>
+  {{ end }}
 </div>

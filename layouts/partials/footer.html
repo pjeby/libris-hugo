@@ -2,16 +2,16 @@
   <div class="inner">
     <div class="site-footer-inside">
       <p class="site-info">
-        {{ site.data.footer.content | safe }}
+        {{ .Site.Data.footer.content | safeHTML }}
         &nbsp;
-        {% for link in site.data.footer.links %}
-        <a href="{{ link.url }}" {% if link.new_window %}target="_blank" rel="noopener"
-          {% endif %}>{{ link.text }}</a>.
-        {% endfor %}
+        {{ range $link := .Site.Data.footer.links }}
+        <a href="{{ $link.url }}" {{ if $link.new_window }}target="_blank" rel="noopener"
+          {{ end }}>{{ $link.text }}</a>.
+        {{ end }}
       </p><!-- .site-info -->
-      {% if site.data.footer.has_social %}
-        {% include "social.html" %}
-      {% endif %}
+      {{ if .Site.Data.footer.has_social }}
+        {{ partial "social.html" . }}
+      {{ end }}
     </div><!-- .site-footer-inside -->
   </div><!-- .inner -->
 </footer><!-- .site-footer -->

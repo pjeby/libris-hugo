@@ -1,21 +1,21 @@
-<section id="{{ include_dict.section.section_id }}" class="block hero-block bg-gradient outer">
-  {% if include_dict.section.image %}
-  <div class="bg-img" style="background-image: url('{{ include_dict.section.image | relative_url }}')"></div>
-  {% endif %}
+<section id="{{ .section.section_id }}" class="block hero-block bg-gradient outer">
+  {{ if .section.image }}
+  <div class="bg-img" style="background-image: url('{{ .section.image | relURL }}')"></div>
+  {{ end }}
   <div class="inner-small">
     <div class="block-inside">
       <div class="block-content">
-        <h2 class="block-title">{{ include_dict.section.title }}</h2>
+        <h2 class="block-title">{{ .section.title }}</h2>
         <div class="block-text">
-          {{ include_dict.section.content | markdownify }}
+          {{ partial "markdownify-block" .section.content }}
         </div>
-        {% if include_dict.section.actions %}
+        {{ if .section.actions }}
         <div class="block-cta">
-          {% for action in include_dict.section.actions %}
-          <a href="{{ action.url | relative_url }}" class="button secondary">{{ action.label }}</a>
-          {% endfor %}
+          {{ range $action := .section.actions }}
+          <a href="{{ $action.url | relURL }}" class="button secondary">{{ $action.label }}</a>
+          {{ end }}
         </div>
-        {% endif %}
+        {{ end }}
       </div><!-- .block-content -->
     </div><!-- .block-inside -->
   </div><!-- .inner-medium -->

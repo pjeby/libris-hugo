@@ -1,8 +1,8 @@
 <ul class="social-links">
-  {% for link in site.data.social.links %}
+  {{ range $link := .Site.Data.social.links }}
   <li>
-    <a href="{{ link.url }}" target="_blank" rel="noopener"><span class="fab {{ link.icon }}"
-        aria-hidden="true"></span><span class="screen-reader-text">{{ link.title }}</span></a>
+    <a href="{{ $link.url }}" target="_blank" rel="noopener"><span class="fab {{ $link.icon }}"
+        aria-hidden="true"></span><span class="screen-reader-text">{{ $link.title }}</span></a>
   </li>
-  {% endfor %}
+  {{ end }}
 </ul><!-- .social-links -->

@@ -3,33 +3,33 @@
     <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
     <div class="docs-toc-wrap">
       <ul id="docs-toc" class="docs-toc">
-        {% set site = include_dict.site %}
-        {% set page = include_dict.page %}
+        {{ $site := .Site }}
+        {{ $page := .page }}
 
-        {% set root_page_path = site.data.doc_sections.root_folder | append("index.md") %}
-        {% set root_page = getPage(root_page_path) %}
-        <li {{ classNames('toc-item', {'current': page.relPath == root_page.relPath}) }}>
-          <a href="{{ root_page.url | relative_url }}">{{ root_page.title }}</a>
+        {{ $root_page_path := print $site.Data.doc_sections.root_folder "_index.md" }}
+        {{ $root_page := .Site.GetPage "page" $root_page_path }}
+        <li class="toc-item{{ if eq $page.File.Path $root_page.File.Path }} current{{ end }}">
+          <a href="{{ $root_page.RelPermalink }}">{{ $root_page.Title }}</a>
         </li>
 
-        {% for section in site.data.doc_sections.sections %}
-          {% set section_folder = site.data.doc_sections.root_folder | append(section) %}
-          {% set section_page_path = section_folder | append("/index.md") %}
-          {% set section_page = getPage(section_page_path) %}
-          {% set child_pages = getPages(section_folder) | where("basename", "!=", "index.md") | sort(false, true, "weight") %}
-          {% set child_count = child_pages | length %}
-          {% set has_children = true if child_count > 0 else false %}
-          {% set is_current_page = true if page.relPath == section_page.relPath else false %}
-          {% set is_active = true if (page.relDir == section_page.relDir or page.relPath == section_page.relPath) else false %}
-          <li {{ classNames('toc-item', {'has-children': has_children, 'current': is_current_page, 'active': is_active}) }}>
-            <a href="{{ section_page.url | relative_url }}">{{ section_page.title }}</a>
-            {% if has_children %}
+        {{ range $section := $site.Data.doc_sections.sections }}
+          {{ $section_folder := print $site.Data.doc_sections.root_folder $section }}
+          {{ $section_page_path := print $section_folder "/_index.md" }}
+          {{ $section_page := $.Site.GetPage "page" $section_page_path }}
+          {{ $child_pages := (where (($.Site.GetPage "section" $section_folder).Pages) "File.LogicalName" "!=" "_index.md").ByWeight }}
+          {{ $child_count := $child_pages | len }}
+          {{ $has_children := cond (gt $child_count 0) true false }}
+          {{ $is_current_page := cond (eq $page.File.Path $section_page.File.Path) true false }}
+          {{ $is_active := cond (or (eq ($page.Dir | replaceRE "/$" "") ($section_page.Dir | replaceRE "/$" "")) (eq $page.File.Path $section_page.File.Path)) true false }}
+          <li class="toc-item{{ if $has_children }} has-children{{ end }}{{ if $is_current_page }} current{{ end }}{{ if $is_active }} active{{ end }}">
+            <a href="{{ $section_page.RelPermalink }}">{{ $section_page.Title }}</a>
+            {{ if $has_children }}
               <button class="submenu-toggle"><span class="screen-reader-text">Submenu</span><span class="icon-angle-right" aria-hidden="true"></span></button>
-              {% set include_dict = {"child_pages": child_pages, "page": page, "site": site} %}
-              {% include "docs_submenu.html" %}
-            {% endif %}
+              {{ $include_dict := dict "child_pages" $child_pages "page" $page "Site" $site }}
+              {{ partial "docs_submenu.html" $include_dict }}
+            {{ end }}
           </li>
-        {% endfor %}
+        {{ end }}
 
       </ul><!-- .docs-toc -->
     </div><!-- .docs-toc-wrap -->

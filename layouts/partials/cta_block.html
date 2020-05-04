@@ -1,22 +1,22 @@
-<section id="{{ include_dict.section.section_id }}" class="block cta-block outer">
+<section id="{{ .section.section_id }}" class="block cta-block outer">
   <div class="inner">
     <div class="block-outside bg-gradient">
       <div class="block-inside">
         <div class="block-content">
-          <h2 class="block-title">{{ include_dict.section.title }}</h2>
-          {% if include_dict.section.subtitle %}
+          <h2 class="block-title">{{ .section.title }}</h2>
+          {{ if .section.subtitle }}
           <p class="block-text">
-            {{ include_dict.section.subtitle | safe }}
+            {{ .section.subtitle | safeHTML }}
           </p>
-          {% endif %}
+          {{ end }}
         </div><!-- .block-content -->
-        {% if include_dict.section.actions %}
+        {{ if .section.actions }}
         <div class="block-cta">
-          {% for action in include_dict.section.actions %}
-          <a href="{{ action.url | relative_url }}" class="button secondary">{{ action.label }}</a>
-          {% endfor %}
+          {{ range $action := .section.actions }}
+          <a href="{{ $action.url | relURL }}" class="button secondary">{{ $action.label }}</a>
+          {{ end }}
         </div><!-- .block-cta -->
-        {% endif %}
+        {{ end }}
       </div><!-- .block-inside -->
     </div><!-- .block-outside -->
   </div><!-- .inner -->
