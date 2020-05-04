@@ -1,6 +1,6 @@
 ---
 title: Manage Content
-excerpt: In this section you'll learn how to add syntax highlighting, examples, callouts and much more.
+summary: In this section you'll learn how to add syntax highlighting, examples, callouts and much more.
 layout: docs
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Introducing The Libris Theme
-excerpt: >-
+summary: >-
     Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Antealiquet commodo accumsan vis phasellus adipiscing. 
 date: 2019-04-24
 thumb_img_path: images/4.jpg

@@ -26,10 +26,8 @@
           <section class="block-item">
             <div class="block-item-inside">
               <h2 class="block-item-title{{ if $has_children }} line-left{{ end }}"><a href="{{ $section_page.RelPermalink }}">{{ $section_page.Title }}</a></h2>
-              {{ if $section_page.Params.excerpt }}
-                <p class="block-item-text">{{ $section_page.Params.excerpt | safeHTML }}</p>
+                <p class="block-item-text">{{ $section_page.Summary | safeHTML }}</p>
                 <p class="block-item-cta"><a href="{{ $section_page.RelPermalink }}">Learn More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
-              {{ end }}
             </div><!-- .block-item-inside -->
           </section><!-- .block-item -->
         {{ end }}

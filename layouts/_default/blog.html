@@ -29,10 +29,8 @@
             </div>
             <h2 class="post-title line-left"><a href="{{ $post.RelPermalink }}" rel="bookmark">{{ $post.Params.title }}</a></h2>
           </header><!-- .post-header -->
-          {{ if $post.Params.excerpt }}
-          <p class="post-excerpt">{{ $post.Params.excerpt }}</p>
+          <p class="post-excerpt">{{ $post.Summary }}</p>
           <p class="read-more"><a href="{{ $post.RelPermalink }}" class="read-more-link">Read More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
-          {{ end }}
         </article><!-- .post -->
         {{ end }}
       </div><!-- .post-feed -->

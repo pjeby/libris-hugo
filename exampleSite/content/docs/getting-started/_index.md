@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-excerpt: In this section you'll find basic information about Libris and how to use it.
+summary: In this section you'll find basic information about Libris and how to use it.
 layout: docs
 ---
 

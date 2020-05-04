@@ -1,6 +1,6 @@
 ---
 title: About
-excerpt: Libris is a Unibit theme created for project documentations. You can use it for your project.
+summary: Libris is a Unibit theme created for project documentations. You can use it for your project.
 layout: docs
 ---
 
