@@ -61,20 +61,6 @@ models:
           - type: palette
             name: violet
             label: Violet
-  author:
-    type: data
-    file: author.json
-    label: Author
-    fields:
-      - type: string
-        name: name
-        label: Name
-      - type: string
-        name: email
-        label: Email
-      - type: image
-        name: avatar
-        label: Avatar
   header:
     type: data
     file: header.yml
