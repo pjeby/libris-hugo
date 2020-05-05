@@ -1,6 +1,6 @@
 # Libris
 
-A port of the Stackbit Libris theme for use with Hugo. [Live Demo](https://themes.stackbit.com/demos/libris/blue)
+A port of the Stackbit Libris theme for use with Hugo. [Live Demo](https://pjeby.github.io/libris-hugo/)
 
 ## Creating Documentation Sections
 
