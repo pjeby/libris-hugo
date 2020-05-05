@@ -42,9 +42,9 @@ sections:
       Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum consectetur lobortis.
     actions:
       - label: View Demo
-        url: "/docs/getting-started/index.html"
+        url: "/docs/getting-started.html"
       - label: Get Started
-        url: "/docs/getting-started/index.html"
+        url: "/docs/getting-started.html"
   - section_id: features-two-col
     component: "features_block.html"
     type: featuresblock
@@ -57,7 +57,7 @@ sections:
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh fringilla, fringilla tortor at, pulvinar orci.
         actions:
           - label: Learn More
-            url: "/overview.html"
+            url: "/docs/overview.html"
       - title: Showcase
         content: |-
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at, tincidunt ut tellus. Vivamus rhoncus mattis varius.

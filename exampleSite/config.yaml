@@ -48,3 +48,4 @@ sass:
   precision: 10
 
 relativeURLs: true
+uglyurls: true
