@@ -1,10 +1,22 @@
-# Libris
+# Libris Hugo
 
-A port of the Stackbit Libris theme for use with Hugo. [Live Demo](https://pjeby.github.io/libris-hugo/)
+A port of the [Stackbit Libris](https://github.com/stackbithq/stackbit-theme-libris) theme for use with Hugo.  [Live Demo](https://pjeby.github.io/libris-hugo/)
+
+[![](images/screenshot.png)](https://pjeby.github.io/libris-hugo/)
+
+Note: I am still refactoring things to be more Hugo-friendly, so things may change a lot.  If you update your local copy of this theme to a new version, *you should expect things to break*.  The theme is currently quite functional (even more so than the original in some aspects), but I expect to still be refactoring various things in the future, like:
+
+* configurable language support for prism highlighting
+* improved page components system and DRY rendering thereof
+* list pagination
+* proper kind/type/section/layout hierarchy mapping (a lot of stuff is still organized by layout only)
+* better separation between the theme and the example site (some site stuff may still be in the theme)
+
+And any or all of these changes might be backward-incompatible with the effective "API" of a previous release.
 
 ## Creating Documentation Sections
 
-A site can have one or more "books" of documentation as top-level sections; e.g. `content/docs`, `content/man`, `content/book1`, `content/book2` etc.  Each section must have an `_index.md` (the top level/overview page), and can have a single sublevel of folders containing an `_index.md` file for the subsections of that section.  For example:
+A site can have one or more "books" of documentation as top-level sections; e.g. `content/docs`, `content/man`, `content/book1`, `content/book2` etc.  Each section must have an `_index.md` (the top level/overview page), and can have a single sublevel of folders containing an `_index.md` file for each subsections of that section.  For example:
 
 - Documentation root page: `content/docs/_index.md`
 
