@@ -19,4 +19,5 @@ menu:
     name: Overview
     parent: layouts
 layout: overview
+type: docs
 ---

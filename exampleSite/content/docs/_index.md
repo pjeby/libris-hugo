@@ -4,7 +4,6 @@ menus:
   main:
     weight: 2
     name: Docs
-layout: docs
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt id ante id varius. Fusce a gravida dolor.

@@ -1,7 +1,6 @@
 ---
 title: Overview
 weight: 1
-layout: docs
 ---
 
 <div class="note">

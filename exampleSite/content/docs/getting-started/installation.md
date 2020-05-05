@@ -1,7 +1,6 @@
 ---
 title: Installation
 weight: 1
-layout: docs
 ---
 
 <div class="note">

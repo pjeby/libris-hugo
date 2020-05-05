@@ -161,28 +161,6 @@ models:
               label: URL
               widget: url
               required: true
-  doc_sections:
-    type: data
-    file: doc_sections.yml
-    label: Documentation Sections
-    fields:
-      - type: string
-        name: root_folder
-        label: Root Folder
-        description: >-
-          The path under which the documentation pages will be generated. For
-          example, set to "/" to put all documentation pages at root, or set to
-          "/docs/" to put all documentation pages under "/docs/".
-        default: /docs/
-        required: true
-      - type: list
-        name: sections
-        label: Sections
-        description: >-
-          The main sections of the documentation. Every item must be the URL
-          slug representing the section.
-        items:
-          type: string
   docs:
     type: page
     label: Documentation Pages
@@ -199,8 +177,7 @@ models:
         name: weight
         label: Weight
         description: >-
-          The navigation order of the documentation page. This value is ignored
-          for parent section pages.
+          The navigation order of the documentation page.
       - type: string
         name: summary
         label: Summary

@@ -1,7 +1,6 @@
 ---
 title: Starter Theme
 weight: 1
-layout: docs
 ---
 
 <div class="note">
