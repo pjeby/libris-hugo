@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Introducing The Libris Theme - Stackbit Libris Theme</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="google" content="notranslate" />
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="../../assets/css/main.css">
+
+</head>
+<body>
+<div id="page" class="site">
+<header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        <p class="site-logo">
+          <a href="../../">
+            <img src="../../images/logo.svg" alt="Logo" />
+          </a>
+        </p>
+        
+        
+        <p class="site-title"><a href="../../">Libris</a></p>
+        
+      </div>
+      
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          
+          
+          <ul class="menu">
+  
+  <li class="menu-item">
+    <a href="../../">Home</a>
+    
+  </li>
+  
+  <li class="menu-item">
+    <a href="../../docs/">Docs</a>
+    
+  </li>
+  
+  <li class="menu-item">
+    <a href="../../blog/">Blog</a>
+    
+  </li>
+  
+  <li class="menu-item">
+    <a href="../../style-guide/">Style Guide</a>
+    
+  </li>
+  
+  <li class="menu-item has-children">
+    <a href="#">Sample Layouts</a>
+    
+      
+      
+      
+      <ul class="submenu">
+  
+  <li class="menu-item">
+    <a href="../../docs/overview/">Overview</a>
+    
+  </li>
+  
+  <li class="menu-item">
+    <a href="../../showcase/">Showcase</a>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+  <li class="menu-item">
+    <a href="https://github.com/">GitHub</a>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </nav>
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+      
+    </div>
+  </div>
+</header>
+
+  <main id="content" class="site-content">
+    
+
+  <article class="post post-full">
+    <header class="post-header bg-gradient outer">
+      
+      <div class="bg-img" style="background-image: url('/images/3.jpg')"></div>
+      
+      <div class="inner-small">
+        <div class="post-meta">
+          <time class="published" datetime="2019-04-24 00:00">April 24, 2019</time>
+        </div>
+        <h1 class="post-title">Introducing The Libris Theme</h1>
+        
+      </div>
+    </header>
+    <div class="outer">
+      <div class="inner-medium">
+        <div class="post-content">
+          <p><strong>Vis accumsan feugiat</strong> adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor.</p>
+<p>Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">type</span>) {
+  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;Object&#39;</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">objId</span>(<span style="color:#a6e22e">o</span>);
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">visited</span>[<span style="color:#a6e22e">id</span>]) {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">visited</span>[<span style="color:#a6e22e">id</span>];
+    }
+    <span style="color:#a6e22e">clone</span> <span style="color:#f92672">=</span> {};
+    <span style="color:#a6e22e">visited</span>[<span style="color:#a6e22e">id</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>;
+
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">o</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#a6e22e">key</span>)) {
+        <span style="color:#a6e22e">clone</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">deepClone</span>(<span style="color:#a6e22e">o</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">visited</span>);
+      }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">clone</span>;
+
+  <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">o</span>;
+}
+</code></pre></div><p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
+<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  
+  
+
+
+  </main>
+  <footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <p class="site-info">
+        &copy; Stackbit-Libris. All rights reserved.
+        &nbsp;
+        
+        <a href="https://www.stackbit.com" target="_blank" rel="noopener"
+          >Made with Stackbit</a>.
+        
+      </p>
+      
+        <ul class="social-links">
+  
+  <li>
+    <a href="https://twitter.com/" target="_blank" rel="noopener"><span class="fab fa-twitter"
+        aria-hidden="true"></span><span class="screen-reader-text">Twitter</span></a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="fab fa-instagram"
+        aria-hidden="true"></span><span class="screen-reader-text">Instagram</span></a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/" target="_blank" rel="noopener"><span class="fab fa-github"
+        aria-hidden="true"></span><span class="screen-reader-text">GitHub</span></a>
+  </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script src="../../assets/js/plugins.js"></script>
+<script src="../../assets/js/prism.js" data-manual></script>
+<script src="../../assets/js/main.js"></script>
+
+</body>
+</html>
