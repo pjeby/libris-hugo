@@ -3,55 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/docs/about/</loc>
+    <loc>/docs/about.html</loc>
   </url>
   
   <url>
-    <loc>/docs/getting-started/installation/</loc>
+    <loc>/docs/getting-started/installation.html</loc>
   </url>
   
   <url>
-    <loc>/docs/about/overview/</loc>
+    <loc>/docs/about/overview.html</loc>
   </url>
   
   <url>
-    <loc>/docs/tools/starter-theme/</loc>
+    <loc>/docs/tools/starter-theme.html</loc>
   </url>
   
   <url>
-    <loc>/docs/ui-components/typography/</loc>
+    <loc>/docs/ui-components/typography.html</loc>
   </url>
   
   <url>
-    <loc>/docs/about/features/</loc>
+    <loc>/docs/about/features.html</loc>
   </url>
   
   <url>
-    <loc>/docs/getting-started/</loc>
+    <loc>/docs/getting-started.html</loc>
   </url>
   
   <url>
-    <loc>/docs/tools/plug-ins/</loc>
+    <loc>/docs/tools/plug-ins.html</loc>
   </url>
   
   <url>
-    <loc>/docs/getting-started/quick-start/</loc>
+    <loc>/docs/getting-started/quick-start.html</loc>
   </url>
   
   <url>
-    <loc>/docs/ui-components/</loc>
+    <loc>/docs/ui-components.html</loc>
   </url>
   
   <url>
-    <loc>/docs/manage-content/</loc>
+    <loc>/docs/manage-content.html</loc>
   </url>
   
   <url>
-    <loc>/docs/tools/</loc>
+    <loc>/docs/tools.html</loc>
   </url>
   
   <url>
-    <loc>/posts/community/</loc>
+    <loc>/posts/community.html</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -61,51 +61,51 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
+    <loc>/posts.html</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/libris-theme/</loc>
+    <loc>/posts/libris-theme.html</loc>
     <lastmod>2019-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/conf/</loc>
+    <loc>/posts/conf.html</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/function-of-design/</loc>
+    <loc>/posts/function-of-design.html</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/</loc>
+    <loc>/blog.html</loc>
   </url>
   
   <url>
-    <loc>/docs/faq/</loc>
+    <loc>/docs/faq.html</loc>
   </url>
   
   <url>
-    <loc>/docs/overview/</loc>
+    <loc>/docs/overview.html</loc>
   </url>
   
   <url>
-    <loc>/showcase/</loc>
+    <loc>/showcase.html</loc>
   </url>
   
   <url>
-    <loc>/style-guide/</loc>
+    <loc>/style-guide.html</loc>
   </url>
   
   <url>
-    <loc>/docs/</loc>
+    <loc>/docs.html</loc>
   </url>
   
   <url>
-    <loc>/docs/community/</loc>
+    <loc>/docs/community.html</loc>
   </url>
   
 </urlset>
