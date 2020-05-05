@@ -2,78 +2,54 @@
 
 A port of the Stackbit Libris theme for use with Hugo. [Live Demo](https://themes.stackbit.com/demos/libris/blue)
 
+## Creating Documentation Sections
 
-# Theme Documentation
+A site can have one or more "books" of documentation as top-level sections; e.g. `content/docs`, `content/man`, `content/book1`, `content/book2` etc.  Each section must have an `_index.md` (the top level/overview page), and can have a single sublevel of folders containing an `_index.md` file for the subsections of that section.  For example:
 
-### Editing & adding docs pages
+- Documentation root page: `content/docs/_index.md`
 
-All documentation pages must be located inside the `content/docs` folder. You can create folders inside this folder 1 level deep. For example:
+  (Note: you can put other pages in the section root next to this file, but they will not appear in the section's sidebar navigation, or on any overview pages, so you'll need to add them to a Hugo menu or explicitly link to them for anyone to find them.)
 
-- Documentation root page: `docs/index.md`
-- Parent section pages: `docs/<section_name>/index.md`
-- Child section pages: `docs/<section_name>/<page_name>.md` 
+- Parent section pages: `content/docs/<section_name>/_index.md`
 
-Documentation pages should contain the following front matter. `title` and `template` are required. 
+- Child section pages: `content/docs/<section_name>/<page_name>.md`
+
+Documentation pages should contain the following front matter. `title` is required for all pages, and `weight` is needed to change the order from simple alphabetical order.   `type` is only needed for pages under a directory other than `content/docs`.
 
 ```yaml
 ---
-- `title`: apart from defining the page title, docs layout use this field to
-  label navigation menu items.
-- `weight`: defines the order of the child section page. This field is ignored
-  for parent section pages.
-- `template`: docs
-- `excerpt`: Can be defined on a parent section pages to render the description
-  of the section in the Overview page (`overview.html`). This field is ignored
-  for child section pages. 
+- weight: defines the order of the child section page.
+- type: docs  # required if not under /content/docs
+- title: >-
+    Defines the page title, and navigation menu item label.
+- summary: >-
+    Can be defined on a parent section pages to render the description
+    of the section in the Overview page (`overview.html`). This field is ignored
+    for child section pages.
 ---
 ```
 
-All page inside the `content/docs` folder should use the `docs` layout (`templates/docs.html`).
-This layout is responsible for rendering the documentation navigation menu and
-uses several properties to control its appearance: 
-
-### Docs menu
-
-For sections to appear in the docs sidebar menu they must be defined in `doc_sections.yml` located
-inside the `data` folder. The order of section in this list will define the appearance order in navigation menu.  
-
-`doc_sections.yml`:
-
-```yaml
-root_folder: /docs/
-sections:
-  - about
-  - getting-started
-  - ui-components
-  - manage-content
-  - tools
-  - faq
-  - community
-```
+Each book of documentation can have a page that uses `layout: overview` to render an overview of the subsections of that "book" of documentation.  (It must also set `type: docs` if it is outside the `content/docs/`  directory.)
 
 ### Example
 
-Here is an example to a folder structure, several documentation pages and
-documentation sections:
+Here is an example to a folder structure, several sections and pages within a single documentation "book" (`docs`):
 
 ```
 .
-├── data
-│   ├── doc_sections.yml
-│   └── ...
 ├── content
 │   ├── docs
 │   │   ├── getting-started
-│   │   │   ├── index.md         [section parent page]
+│   │   │   ├── _index.md        [section parent page]
 │   │   │   ├── installation.md  [section child page]
 │   │   │   └── quick-start.md   [section child page]
 │   │   ├── guides
-│   │   │   ├── index.md         [section parent page]
+│   │   │   ├── _index.md        [section parent page]
 │   │   │   ├── features.md      [section child page]
 │   │   │   └── overview.md      [section child page]
 │   │   ├── faq
-│   │   │   └── index.md         [section parent page]
-│   │   └── index.md             [documentation root page]
+│   │   │   └── _index.md        [section parent page]
+│   │   └── _index.md            [documentation root page, "Welcome To Libris"]
 │   └── ...
 └── ...
 ```
@@ -84,7 +60,6 @@ documentation sections:
 ---
 title: Overview
 weight: 1           # position guides/overview first
-template: docs
 ---
 ```
 
@@ -94,21 +69,13 @@ template: docs
 ---
 title: Features
 weight: 2           # position guides/features second
-template: docs
 ---
 ```
 
-`data/doc_sections.yml`:
 
-```yaml
-root_folder: /docs/
-sections:
-  - getting-started
-  - guides
-  - faq
-```
 
 ![Navigation Example](images/libris-navigation-example.png "Navigation Example")
+
 
 
 ### Callouts
@@ -146,42 +113,40 @@ if (condition) {
 
 ## Editing the Homepage
 
-The homepage content uses `content/index.md`. You can edit all of the homepage sections by editing this files front matter.
+The homepage content uses `content/_index.md`. You can edit all of the homepage sections by editing this file's front matter.
 
 ## Main Navigation
 
 The items of the main menu located at the top can be defined either inside the page front matter or inside the `config.yml` file.
 
-To add a page menu item, you should define the `menus` parametter in the front matter of the page. For instance:
+To add a page menu item, you should define the `menu` parametter in the front matter of the page. For instance:
 
 ```yaml
 ---
 title: Welcome to Libris
-menus:
+menu:
   main:
     weight: 2
-    title: Docs
-template: docs
+    name: Docs
 ---
 ```
 
-To add a global menu item, you should define it inside the root `menus` field inside `config.yml`. For instance:
+To add a global menu item, you should define it inside the root `menu` field inside `config.yml`. For instance:
 
 ```yaml
-menus:
+menu:
   main:
     - identifier: github
-      title: GitHub
+      name: GitHub
       url: "https://github.com/"
       weight: 6
 ```
 
 ## Additional Templates
 
-Besides the usual templates (`blog`, `page`, `post`) and documentation templatee mentioned above (`docs`), there are two
-additional templates that can be used for pages:
+Besides the usual templates (`blog`, `page`, `post`) and documentation templatee mentioned above (`docs`), there are two additional templates that can be used for pages:
 
-- `overview` - used to list all the documentation sections in a neat grid.
+- `overview` - used to list all the subsections of the current docs section in a neat grid.
 - `showcase` - used to showcase the users of your product.
 
 ## Social Links
@@ -197,7 +162,7 @@ Libris supports the following color palettes:
 - navy
 - violet
 
-To change the color palette, update the `palette` variable in config.yml.
+To change the color palette, update the `palette` variable in config.yaml.
 
 ## Credits
 
