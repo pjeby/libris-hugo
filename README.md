@@ -8,7 +8,7 @@ A site can have one or more "books" of documentation as top-level sections; e.g.
 
 - Documentation root page: `content/docs/_index.md`
 
-  (Note: you can put other pages in the section root next to this file, but they will not appear in the section's sidebar navigation, or on any overview pages, so you'll need to add them to a Hugo menu or explicitly link to them for anyone to find them.)
+  (Note: if you put any other pages in the section root next to this file, they will be linked at the bottom of this page, but will not appear in the section's sidebar navigation, or on any overview pages.)
 
 - Parent section pages: `content/docs/<section_name>/_index.md`
 
