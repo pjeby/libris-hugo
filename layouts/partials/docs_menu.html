@@ -3,37 +3,36 @@
     <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
     <div class="docs-toc-wrap">
       <ul id="docs-toc" class="docs-toc">
-        {{ $site := .Site }}
-        {{ $page := .page }}
+        {{- $site := .Site -}}
+        {{ $page := .page -}}
 
         {{ $root_page := .Site.GetPage "page" ( $page.Params.nav_top | default $page.Section ) }}
         <li class="toc-item{{ if eq $page.File $root_page.File }} current{{ end }}">
           <a href="{{ $root_page.RelPermalink }}">{{ $root_page.Title }}</a>
         </li>
 
-        {{ range $section_name := $page.Params.nav_pane }}
-          {{ $section := $root_page.GetPage $section_name }}
-          {{ $page.Scratch.Set "nav_children" (slice) }}
-          {{ range $child_page := $section.Params.nav_items }}
-            {{ $page.Scratch.Add "nav_children" (slice ($section.GetPage $child_page)) }}
-          {{ else }}
-            {{ $page.Scratch.Set "nav_children" (where ($section.Pages) "File.LogicalName" "!=" "_index.md").ByWeight }}
-          {{ end }}
-          {{ $child_pages := $page.Scratch.Get "nav_children" }}
-          {{ $child_count := $child_pages | len }}
-          {{ $has_children := cond (gt $child_count 0) true false }}
-          {{ $is_current_page := cond (eq $page.File.Path $section.File.Path) true false }}
+        {{- range $section_name := $page.Params.nav_pane -}}
+          {{ $section := $root_page.GetPage $section_name -}}
+          {{ $page.Scratch.Set "nav_children" (slice) -}}
+          {{ range $child_page := $section.Params.nav_items -}}
+            {{ $page.Scratch.Add "nav_children" (slice ($section.GetPage $child_page)) -}}
+          {{ else -}}
+            {{ $page.Scratch.Set "nav_children" (where ($section.Pages) "File.LogicalName" "!=" "_index.md").ByWeight -}}
+          {{ end -}}
+          {{ $child_pages := $page.Scratch.Get "nav_children" -}}
+          {{ $child_count := $child_pages | len -}}
+          {{ $has_children := cond (gt $child_count 0) true false -}}
+          {{ $is_current_page := cond (eq $page.File.Path $section.File.Path) true false -}}
           {{ $is_active := cond (or (eq ($page.File.Dir | replaceRE "/$" "") ($section.File.Dir | replaceRE "/$" "")) (eq $page.File.Path $section.File.Path)) true false }}
           <li class="toc-item{{ if $has_children }} has-children{{ end }}{{ if $is_current_page }} current{{ end }}{{ if $is_active }} active{{ end }}">
             <a href="{{ $section.RelPermalink }}">{{ $section.Title }}</a>
-            {{ if $has_children }}
+            {{- if $has_children }}
               <button class="submenu-toggle"><span class="screen-reader-text">Submenu</span><span class="icon-angle-right" aria-hidden="true"></span></button>
-              {{ $include_dict := dict "child_pages" $child_pages "page" $page "Site" $site }}
+              {{ $include_dict := dict "child_pages" $child_pages "page" $page "Site" $site -}}
               {{ partial "docs_submenu.html" $include_dict }}
-            {{ end }}
+            {{- end }}
           </li>
-        {{ end }}
-
+        {{- end }}
       </ul><!-- .docs-toc -->
     </div><!-- .docs-toc-wrap -->
   </div><!-- .docs-nav-inside -->

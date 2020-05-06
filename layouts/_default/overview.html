@@ -1,27 +1,26 @@
 {{ define "content" }}
 
   <header class="page-header bg-gradient outer">
-    {{ if .Params.img_path }}
+    {{ if .Params.img_path -}}
     <div class="bg-img" style="background-image: url('{{ .Params.img_path | relURL }}')"></div>
-    {{ end }}
+    {{- end }}
     <div class="inner-small">
       <h1 class="page-title">{{ .Params.title }}</h1>
-      {{ if .Params.subtitle }}
+      {{ if .Params.subtitle -}}
       <p class="page-subtitle">{{ .Params.subtitle }}</p>
-      {{ end }}
+      {{- end }}
     </div><!-- .inner-small -->
   </header><!--.page-header -->
 
   <div class="docs-block outer">
     <div class="inner">
       <div class="block-items">
-        {{ $root_page := .Site.GetPage "page" ( .Params.nav_top | default .Page.Section ) }}
-        {{ range $section_name := .Params.nav_pane }}
-          {{ $section_page := $root_page.GetPage $section_name }}
-          {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") }}
-          {{ $child_count := $child_pages | len }}
+        {{- $root_page := .Site.GetPage "page" ( .Params.nav_top | default .Page.Section ) -}}
+        {{ range $section_name := .Params.nav_pane -}}
+          {{ $section_page := $root_page.GetPage $section_name -}}
+          {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") -}}
+          {{ $child_count := $child_pages | len -}}
           {{ $has_children := cond (gt $child_count 0) true false }}
-
           <section class="block-item">
             <div class="block-item-inside">
               <h2 class="block-item-title{{ if $has_children }} line-left{{ end }}"><a href="{{ $section_page.RelPermalink }}">{{ $section_page.Title }}</a></h2>
@@ -29,14 +28,14 @@
                 <p class="block-item-cta"><a href="{{ $section_page.RelPermalink }}">Learn More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
             </div><!-- .block-item-inside -->
           </section><!-- .block-item -->
-        {{ end }}
+        {{- end }}
       </div><!-- .block-items -->
     </div><!-- .inner -->
   </div><!-- .docs-block -->
 
   {{ range $section := .Params.sections }}
-    {{ $include_dict := dict "section" $section "Site" $.Site }}
+    {{ $include_dict := dict "section" $section "Site" $.Site -}}
     {{ partial $section.component $include_dict }}
-  {{ end }}
+  {{ end -}}
 
-{{ end }}
+{{ end -}}
