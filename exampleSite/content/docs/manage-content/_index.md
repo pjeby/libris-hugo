@@ -1,7 +1,6 @@
 ---
 title: Manage Content
 summary: In this section you'll learn how to add syntax highlighting, examples, callouts and much more.
-weight: 4
 ---
 
 <div class="note">

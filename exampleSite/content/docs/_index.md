@@ -4,6 +4,16 @@ menus:
   main:
     weight: 2
     name: Docs
+cascade:
+  layout: docs
+  nav_pane:
+    - about
+    - getting-started
+    - ui-components
+    - manage-content
+    - tools
+    - faq
+    - community
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt id ante id varius. Fusce a gravida dolor.

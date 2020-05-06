@@ -6,13 +6,20 @@
         {{ $site := .Site }}
         {{ $page := .page }}
 
-        {{ $root_page := .Site.GetPage "page" $page.Section }}
+        {{ $root_page := .Site.GetPage "page" ( $page.Params.nav_top | default $page.Section ) }}
         <li class="toc-item{{ if eq $page.File $root_page.File }} current{{ end }}">
           <a href="{{ $root_page.RelPermalink }}">{{ $root_page.Title }}</a>
         </li>
 
-        {{ range $section := $root_page.Sections }}
-          {{ $child_pages := (where ($section.Pages) "File.LogicalName" "!=" "_index.md").ByWeight }}
+        {{ range $section_name := $page.Params.nav_pane }}
+          {{ $section := $root_page.GetPage $section_name }}
+          {{ $page.Scratch.Set "nav_children" (slice) }}
+          {{ range $child_page := $section.Params.nav_items }}
+            {{ $page.Scratch.Add "nav_children" (slice ($section.GetPage $child_page)) }}
+          {{ else }}
+            {{ $page.Scratch.Set "nav_children" (where ($section.Pages) "File.LogicalName" "!=" "_index.md").ByWeight }}
+          {{ end }}
+          {{ $child_pages := $page.Scratch.Get "nav_children" }}
           {{ $child_count := $child_pages | len }}
           {{ $has_children := cond (gt $child_count 0) true false }}
           {{ $is_current_page := cond (eq $page.File.Path $section.File.Path) true false }}
