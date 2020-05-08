@@ -5,9 +5,9 @@ subtitle: >-
 img_path: images/5.jpg
 items:
   - title: Exto
-    subtitle: A portfolio theme for Unibit 
+    subtitle: A portfolio theme for Unibit
     preview_img: images/6.jpg
-    url: "https://exto-test-1.netlify.com/"
+    url: "https://themes.stackbit.com/demos/exto/"
   - title: Fresh
     subtitle: A personal theme for Unibit
     preview_img: images/7.jpg
