@@ -3,10 +3,9 @@ title: Overview
 subtitle: >-
   An optional subtitle
 img_path: images/5.jpg
-sections:
+blocks:
   - section_id: cta
-    component: "cta_block.html"
-    type: ctablock
+    type: cta
     title: The Title of The Call to Action Block
     subtitle: >-
       This is an optional description for the call to action block.

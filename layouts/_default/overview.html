@@ -19,23 +19,18 @@
         {{ range $section_name := .Params.nav_pane -}}
           {{ $section_page := $root_page.GetPage $section_name -}}
           {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") -}}
-          {{ $child_count := $child_pages | len -}}
-          {{ $has_children := cond (gt $child_count 0) true false }}
-          <section class="block-item">
-            <div class="block-item-inside">
-              <h2 class="block-item-title{{ if $has_children }} line-left{{ end }}"><a href="{{ $section_page.RelPermalink }}">{{ $section_page.Title }}</a></h2>
-                <p class="block-item-text">{{ $section_page.Summary | safeHTML }}</p>
-                <p class="block-item-cta"><a href="{{ $section_page.RelPermalink }}">Learn More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
-            </div><!-- .block-item-inside -->
-          </section><!-- .block-item -->
+          {{ $url := $section_page.RelPermalink }}
+          {{ with dict `` `
+            ` "title"     $section_page.Title `` `
+            ` "url"       $url `` `
+            ` "highlight" (gt (len $child_pages) 0) `` `
+            ` "content"   ($section_page.Summary | safeHTML) `` `
+            ` "actions"   (slice (dict "label" "Learn More" "url" $url)) `` `
+            ` -}}{{ partial "card" ( slice $ . ) }}
+          {{ end }}
         {{- end }}
       </div><!-- .block-items -->
     </div><!-- .inner -->
   </div><!-- .docs-block -->
-
-  {{ range $section := .Params.sections }}
-    {{ $include_dict := dict "section" $section "Site" $.Site -}}
-    {{ partial $section.component $include_dict }}
-  {{ end -}}
-
+  {{ partial "blocks" . }}
 {{ end -}}

@@ -1,0 +1,17 @@
+{{ $ = index . 0 }}
+{{ with index . 1 }}
+<section class="block-item">
+  <div class="block-item-inside">
+    <h2 class="block-item-title{{ if .highlight | default true }} line-left{{ end }}"
+      >{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+    <div class="block-item-text">{{ .content }}</div>
+    {{- with .actions }}
+      <div class="block-item-cta">
+      {{ range  . }}
+        <a href="{{ partial "fn/resolved-url" (slice $ .url) }}">{{ .label }}<span class="icon-arrow-right" aria-hidden="true"></span></a>
+      {{ end }}
+      </div>
+    {{- end }}
+  </div><!-- .block-item-inside -->
+</section><!-- block-item -->
+{{ end }}

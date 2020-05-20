@@ -1,0 +1,3 @@
+{{ range .Params.blocks }}
+{{ partial (printf "block/%s" .type) (slice $ .) }}
+{{ end }}

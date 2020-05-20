@@ -1,0 +1,24 @@
+{{ $ = index . 0 }}{{ with index . 1 -}}
+<section {{with .id}}id="{{ . }}"{{end}} class="block features-block outer{{ if or .title .subtitle }} has-header{{ end }}">
+  <div class="inner">
+    <div class="block-inside">
+      {{ if or .title .subtitle -}}
+      <div class="block-header">
+        {{ with .title }}<h2 class="block-title">{{ . }}</h2>{{ end }}
+        {{ with .subtitle -}}
+        <p class="block-subtitle">{{ . | safeHTML }}</p>
+        {{- end }}
+      </div><!-- .block-header -->
+      {{- end -}}
+      {{ with .features -}}
+      <div class="block-items">
+      {{- range . }}
+        {{ $content := dict "content" ( .content | $.RenderString (dict "display" "block") ) -}}
+        {{ partial "card" (slice $ (merge . $content)) -}}
+      {{- end }}
+      </div><!-- .block-items -->
+      {{ end }}
+    </div><!-- .block-inside -->
+  </div><!-- .inner -->
+</section><!-- .features-block -->
+{{- end }}

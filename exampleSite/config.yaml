@@ -49,3 +49,6 @@ sass:
 
 relativeURLs: true
 uglyurls: true
+
+themesDir: ../..
+theme: libris-hugo

@@ -1,0 +1,8 @@
+{{ $ = index . 0 }}
+{{ $ret := index . 1 }}
+{{ with $.GetPage $ret }}
+  {{ $ret = .RelPermalink }}
+{{ else }}
+  {{ $ret = $ret | relURL }}
+{{ end }}
+{{ return $ret }}

@@ -1,0 +1,25 @@
+{{ $ = index . 0 }}{{ with index . 1 -}}
+<section {{with .id}}id="{{ . }}"{{end}} class="block hero-block bg-gradient outer">
+  {{ with .image }}
+  <div class="bg-img" style="background-image: url('{{ . | relURL }}')"></div>
+  {{ end }}
+  <div class="inner-small">
+    <div class="block-inside">
+      <div class="block-content">
+        <h2 class="block-title">{{ .title }}</h2>
+        <div class="block-text">
+          {{ .content | $.RenderString (dict "display" "block") }}
+        </div>
+        {{ with .actions }}
+        <div class="block-cta">
+          {{ range $action := . }}
+          <a href="{{ partial "fn/resolved-url" (slice $ .url) -}}
+            " class="button secondary">{{ .label }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div><!-- .block-content -->
+    </div><!-- .block-inside -->
+  </div><!-- .inner-medium -->
+</section><!-- .hero-block -->
+{{- end }}

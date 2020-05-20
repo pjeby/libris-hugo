@@ -1,0 +1,24 @@
+{{ $ = index . 0 }}{{ with index . 1 -}}
+<section {{with .id}}id="{{ . }}"{{end}} class="block text-block outer">
+  <div class="inner">
+    <div class="block-inside">
+      {{ if .image }}
+      <div class="block-preview">
+        <img class="thumbnail" src="{{ partial "fn/resolved-url" (slice $ .image) }}" alt="{{ .title }}" />
+      </div><!-- .block-preview -->
+      {{ end }}
+      <div class="block-content">
+        <h2 class="block-title">{{ .title }}</h2>
+        <div class="block-text">{{ .content | $.RenderString (dict "display" "block") }}</div>
+        {{ with .actions }}
+        <div class="block-cta">
+          {{ range . }}
+          <a href="{{ partial "fn/resolved-url" (slice $ .url) }}" class="button">{{ .label }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div><!-- .block-content -->
+    </div><!-- .block-inside -->
+  </div><!-- .inner -->
+</section><!-- .text-block -->
+{{ end }}

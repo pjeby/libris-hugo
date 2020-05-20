@@ -1,0 +1,22 @@
+{{ $ = index . 0 }}{{ with index . 1 -}}
+<section id="{{ .id }}" class="block cta-block outer">
+  <div class="inner">
+    <div class="block-outside bg-gradient">
+      <div class="block-inside">
+        <div class="block-content">
+          <h2 class="block-title">{{ .title }}</h2>
+          {{ with .subtitle }}<p class="block-text">{{ . | safeHTML }}</p>{{ end }}
+        </div><!-- .block-content -->
+        {{ with .actions }}
+        <div class="block-cta">
+          {{ range . }}
+          <a href="{{ partial "fn/resolved-url" (slice $ .url) -}}
+            " class="button secondary">{{ .label }}</a>
+          {{ end }}
+        </div><!-- .block-cta -->
+        {{ end }}
+      </div><!-- .block-inside -->
+    </div><!-- .block-outside -->
+  </div><!-- .inner -->
+</section><!-- .cta-block -->
+{{- end}}

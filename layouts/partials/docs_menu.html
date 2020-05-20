@@ -10,7 +10,7 @@
 
         {{- range $section_name := .Page.Params.nav_pane -}}
           {{ $section := $root_page.GetPage $section_name -}}
-          {{ $child_pages := partialCached "nav_children" $section $section -}}
+          {{ $child_pages := partialCached "fn/nav_children" $section $section -}}
           {{ $is_current_page := cond (eq $.File.Path $section.File.Path) true false -}}
           {{ $is_active := cond (or (eq ($.File.Dir | replaceRE "/$" "") ($section.File.Dir | replaceRE "/$" "")) (eq $.File.Path $section.File.Path)) true false }}
           <li class="toc-item{{ if $child_pages }} has-children{{ end }}{{ if $is_current_page }} current{{ end }}{{ if $is_active }} active{{ end }}">
