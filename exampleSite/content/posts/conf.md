@@ -3,8 +3,8 @@ title: New Conference
 summary: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac ut consequat semper viverra nam libero justo laoreet sit.
 date: 2019-03-10
-thumb_img_path: images/2.jpg
-content_img_path: images/2.jpg
+thumbnail: images/2.jpg
+image: images/2.jpg
 layout: post
 ---
 

@@ -2,7 +2,7 @@
 title: Style Guide
 subtitle: >-
   The style guide provides you with a blueprint of default post and page styles.
-img_path: images/5.jpg
+image: images/5.jpg
 menus:
   main:
     weight: 4

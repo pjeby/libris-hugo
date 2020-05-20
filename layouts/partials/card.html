@@ -2,9 +2,14 @@
 {{ with index . 1 }}
 <section class="block-item">
   <div class="block-item-inside">
-    <h2 class="block-item-title{{ if .highlight | default true }} line-left{{ end }}"
+	{{ if .image -}}
+	{{with .url}}<a class="block-item-preview" href="{{ . }}">{{end -}}
+	  <img class="thumbnail" src="{{ .image | relURL }}" alt="{{ .title }}" />
+	{{- with .url}}</a>{{end}}
+	{{- end }}
+    <h2 class="block-item-title{{ if .highlight }} line-left{{ end }}"
       >{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-    <div class="block-item-text">{{ .content }}</div>
+    <div class="block-item-text">{{ .content | default .subtitle | $.RenderString }}</div>
     {{- with .actions }}
       <div class="block-item-cta">
       {{ range  . }}

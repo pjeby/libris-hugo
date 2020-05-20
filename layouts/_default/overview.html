@@ -1,17 +1,5 @@
 {{ define "content" }}
-
-  <header class="page-header bg-gradient outer">
-    {{ if .Params.img_path -}}
-    <div class="bg-img" style="background-image: url('{{ .Params.img_path | relURL }}')"></div>
-    {{- end }}
-    <div class="inner-small">
-      <h1 class="page-title">{{ .Params.title }}</h1>
-      {{ if .Params.subtitle -}}
-      <p class="page-subtitle">{{ .Params.subtitle }}</p>
-      {{- end }}
-    </div><!-- .inner-small -->
-  </header><!--.page-header -->
-
+{{ template "page-head" .}}
   <div class="docs-block outer">
     <div class="inner">
       <div class="block-items">
@@ -24,7 +12,7 @@
             ` "title"     $section_page.Title `` `
             ` "url"       $url `` `
             ` "highlight" (gt (len $child_pages) 0) `` `
-            ` "content"   ($section_page.Summary | safeHTML) `` `
+            ` "content"   $section_page.Summary `` `
             ` "actions"   (slice (dict "label" "Learn More" "url" $url)) `` `
             ` -}}{{ partial "card" ( slice $ . ) }}
           {{ end }}

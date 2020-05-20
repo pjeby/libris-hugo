@@ -213,7 +213,7 @@ models:
         label: Subtitle
         description: The text shown just below the page title.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown in the background of the page header.
   overview:
@@ -234,7 +234,7 @@ models:
         label: Subtitle
         description: The text shown just below the page title.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown in the background of the page header.
       - type: list
@@ -265,7 +265,7 @@ models:
         label: Subtitle
         description: The text shown just below the page title.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown in the background of the page header.
       - type: list
@@ -286,7 +286,7 @@ models:
               label: Subtitle
               description: The subtitle of the item.
             - type: image
-              name: preview_img
+              name: image
               label: Preview Image
               description: The preview image of the item.
             - type: string
@@ -309,7 +309,7 @@ models:
         label: Subtitle
         description: The text shown just below the page title.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown below the page title and subtitle.
   post:
@@ -332,11 +332,11 @@ models:
         label: Date
         required: true
       - type: image
-        name: thumb_img_path
+        name: thumbnail
         label: Featured Image
         description: The image shown in the blog feed.
       - type: image
-        name: content_img_path
+        name: image
         label: Alt Featured Image
         description: The image shown in the header background in the single post.
       - type: string
@@ -404,14 +404,14 @@ models:
     extends:
       - section
     fields:
-      - name: component
-        default: features_block.html
+      - name: type
+        default: features
       - type: string
         name: subtitle
         label: Subtitle
         description: The subtitle of the section.
       - type: list
-        name: featureslist
+        name: items
         label: Features List
         items:
           type: object
@@ -421,6 +421,10 @@ models:
             - type: string
               name: title
               label: Title
+            - type: image
+              name: image
+              label: Image
+              description: The image for the feature
             - type: markdown
               name: content
               label: Content

@@ -2,7 +2,7 @@
 title: Overview
 subtitle: >-
   An optional subtitle
-img_path: images/5.jpg
+image: images/5.jpg
 blocks:
   - section_id: cta
     type: cta
