@@ -269,9 +269,9 @@ models:
         label: Image
         description: The image shown in the background of the page header.
       - type: list
-        name: items
-        label: Items
-        description: Showcase items.
+        name: cards
+        label: Cards
+        description: Showcase item cards.
         items:
           type: object
           label: item
@@ -289,6 +289,10 @@ models:
               name: image
               label: Preview Image
               description: The preview image of the item.
+            - type: boolean
+              name: highlight
+              label: Highlight
+              description: Show highlight bar next to title?
             - type: string
               name: url
               label: URL
@@ -411,7 +415,7 @@ models:
         label: Subtitle
         description: The subtitle of the section.
       - type: list
-        name: items
+        name: cards
         label: Features List
         items:
           type: object

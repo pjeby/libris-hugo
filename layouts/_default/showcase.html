@@ -1,11 +1,4 @@
 {{ define "content" }}
 {{template "page-head" .}}
-  <div class="showcase-block outer">
-    <div class="inner">
-      <div class="block-items">
-        {{ range .Params.items -}}{{ partial "card" (slice $ .) }}
-        {{ end -}}
-      </div><!-- .block-items -->
-    </div><!-- .inner-->
-  </div><!-- .showcase-block -->
+{{partial "block/cards" (slice $ (dict "cards" .Params.cards)) }}
 {{ end }}

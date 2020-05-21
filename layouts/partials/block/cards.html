@@ -1,5 +1,8 @@
-{{ $ = index . 0 }}{{ with index . 1 -}}
-<section {{with .id}}id="{{ . }}"{{end}} class="block features-block outer{{ if or .title .subtitle }} has-header{{ end }}">
+{{ $ = index . 0 }}{{ with index . 1 -}}{{ $highlight := .highlight | default false }}
+<section {{with .id}}id="{{ . }}"{{end}} class="block outer cards
+  {{- if .stretch }} stretch{{ end -}}
+  {{- if or .title .subtitle }} has-header{{ end -}}
+">
   <div class="inner">
     <div class="block-inside">
       {{ if or .title .subtitle -}}
@@ -10,15 +13,15 @@
         {{- end }}
       </div><!-- .block-header -->
       {{- end -}}
-      {{ with .items -}}
-      <div class="block-items">
+      {{ with .cards -}}
+      <div class="card-items">
       {{- range . }}
-        {{ $settings := dict "highlight" (.highlight | default true) -}}
+        {{ $settings := dict "highlight" (.highlight | default $highlight) -}}
         {{ partial "card" (slice $ (merge . $settings)) -}}
       {{- end }}
-      </div><!-- .block-items -->
+      </div><!-- .card-items -->
       {{ end }}
-    </div><!-- .block-inside -->
+    </div><!-- .card-inside -->
   </div><!-- .inner -->
-</section><!-- .features-block -->
+</section><!-- .block.cards.stretch.outer -->
 {{- end }}

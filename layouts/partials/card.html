@@ -1,22 +1,22 @@
 {{ $ = index . 0 }}
 {{ with index . 1 }}
-<section class="block-item">
-  <div class="block-item-inside">
+<section class="card">
+  <div class="card-inside {{if .image}}has{{else}}no{{end}}-image">
 	{{ if .image -}}
-	{{with .url}}<a class="block-item-preview" href="{{ . }}">{{end -}}
+	<a class="card-preview" href="{{ .url | default "#" }}">
 	  <img class="thumbnail" src="{{ .image | relURL }}" alt="{{ .title }}" />
-	{{- with .url}}</a>{{end}}
+	</a>
 	{{- end }}
-    <h2 class="block-item-title{{ if .highlight }} line-left{{ end }}"
+    <h2 class="card-title{{ if .highlight }} line-left{{ end }}"
       >{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-    <div class="block-item-text">{{ .content | default .subtitle | $.RenderString }}</div>
+    <div class="card-text">{{ .content | default .subtitle | $.RenderString }}</div>
     {{- with .actions }}
-      <div class="block-item-cta">
+      <div class="card-cta">
       {{ range  . }}
         <a href="{{ partial "fn/resolved-url" (slice $ .url) }}">{{ .label }}<span class="icon-arrow-right" aria-hidden="true"></span></a>
       {{ end }}
       </div>
     {{- end }}
-  </div><!-- .block-item-inside -->
-</section><!-- block-item -->
+  </div><!-- .card-inside -->
+</section><!-- card -->
 {{ end }}

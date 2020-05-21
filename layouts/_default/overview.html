@@ -1,24 +1,19 @@
 {{ define "content" }}
 {{ template "page-head" .}}
-  <div class="docs-block outer">
-    <div class="inner">
-      <div class="block-items">
-        {{- $root_page := .Site.GetPage "page" ( .Params.nav_top | default .Page.Section ) -}}
-        {{ range $section_name := .Params.nav_pane -}}
-          {{ $section_page := $root_page.GetPage $section_name -}}
-          {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") -}}
-          {{ $url := $section_page.RelPermalink }}
-          {{ with dict `` `
-            ` "title"     $section_page.Title `` `
-            ` "url"       $url `` `
-            ` "highlight" (gt (len $child_pages) 0) `` `
-            ` "content"   $section_page.Summary `` `
-            ` "actions"   (slice (dict "label" "Learn More" "url" $url)) `` `
-            ` -}}{{ partial "card" ( slice $ . ) }}
-          {{ end }}
-        {{- end }}
-      </div><!-- .block-items -->
-    </div><!-- .inner -->
-  </div><!-- .docs-block -->
-  {{ partial "blocks" . }}
+{{ $cards := slice -}}
+{{ $root_page := .Site.GetPage "page" ( .Params.nav_top | default .Page.Section ) -}}
+{{ range $section_name := .Params.nav_pane -}}
+  {{ $section_page := $root_page.GetPage $section_name -}}
+  {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") -}}
+  {{ $url := $section_page.RelPermalink -}}
+  {{ $cards = append (slice (dict `` `
+	` "title"     $section_page.Title `` `
+	` "url"       $url `` `
+	` "highlight" (gt (len $child_pages) 0) `` `
+	` "content"   $section_page.Summary `` `
+	` "actions"   (slice (dict "label" "Learn More" "url" $url)) `` `
+	`)) $cards -}}
+{{ end -}}
+{{ partial "block/cards" (slice $ (dict "cards" $cards)) }}
+{{ partial "blocks" . }}
 {{ end -}}

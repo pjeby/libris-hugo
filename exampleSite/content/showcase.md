@@ -3,7 +3,7 @@ title: Showcase
 subtitle: >-
   This is an optional page subtitle
 image: images/5.jpg
-items:
+cards:
   - title: Exto
     subtitle: A portfolio theme for Unibit
     image: images/6.jpg
