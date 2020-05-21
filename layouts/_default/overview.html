@@ -1,7 +1,7 @@
 {{ define "content" }}
 {{ template "page-head" .}}
 {{ $cards := slice -}}
-{{ $root_page := .Site.GetPage "page" ( .Params.nav_top | default .Page.Section ) -}}
+{{ $root_page := .Site.GetPage ( .Params.nav_top | default .Page.Section ) -}}
 {{ range $section_name := .Params.nav_pane -}}
   {{ $section_page := $root_page.GetPage $section_name -}}
   {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") -}}
@@ -15,5 +15,5 @@
 	`)) $cards -}}
 {{ end -}}
 {{ partial "block/cards" (slice $ (dict "cards" $cards)) }}
-{{ partial "blocks" . }}
+{{with .Params.blocks}}{{ partial "blocks" (slice $ .) }}{{ end -}}
 {{ end -}}

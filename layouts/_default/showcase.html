@@ -1,4 +1,5 @@
 {{ define "content" }}
 {{template "page-head" .}}
 {{partial "block/cards" (slice $ (dict "cards" .Params.cards)) }}
+{{with .Params.blocks}}{{ partial "blocks" (slice $ .) }}{{ end -}}
 {{ end }}
