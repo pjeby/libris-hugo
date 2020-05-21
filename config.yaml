@@ -1,0 +1,23 @@
+module:
+  hugoVersion:
+    extended: true
+    minVersion: "0.69.2"
+
+  imports:
+    # Import dependencies.  Files in assets/plugins/*.min.js will be concatenated in order by their name
+    - path: github.com/dollarshaveclub/reframe.js
+      mounts:
+      - target: assets/plugins/01-reframe.min.js
+        source: dist/reframe.min.js
+    - path: github.com/cferdinandi/smooth-scroll
+      mounts:
+      - target: assets/plugins/02-smooth-scroll.min.js
+        source: dist/smooth-scroll.min.js
+    - path: github.com/cferdinandi/gumshoe
+      mounts:
+      - target: assets/plugins/03-gumshoe.min.js
+        source: dist/gumshoe.min.js
+    - path: github.com/zenorocha/clipboard.js
+      mounts:
+      - target: assets/plugins/04-clipboard.min.js
+        source: dist/clipboard.min.js

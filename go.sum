@@ -1,0 +1,13 @@
+github.com/cferdinandi/gumshoe v1.2.0 h1:LS/ievWkLl6gORGn10KcvNzyHPOhdO65+4hhKrja+0k=
+github.com/cferdinandi/gumshoe v5.1.1+incompatible h1:ItFXnL3WvdaIlJ1LE4m2wi0K429ucxbiRz3JwCJ5ZPM=
+github.com/cferdinandi/gumshoe v5.1.1+incompatible/go.mod h1:SfIJXSroTZ/Vw98mxf9ZN2vwBKlFsKccXj1FeWoiaXI=
+github.com/cferdinandi/smooth-scroll v16.1.3+incompatible h1:SKbAKBnuA6VshQgmWUh2m/PCb7UBoY/N26XL27TUyOk=
+github.com/cferdinandi/smooth-scroll v16.1.3+incompatible/go.mod h1:TNY5i142Kv5ZuVhIJjTO9wC9ifAbQUFls7plxn8udvc=
+github.com/dollarshaveclub/reframe.js v0.1.1 h1:9v25QW2NGEzyvgOTR3q5UiOSVc4CMWhTQhYIq6mWxWU=
+github.com/dollarshaveclub/reframe.js v0.1.1/go.mod h1:5xAjkP/sWTKHLMj5kjp8IWpDLaVRuKCz/7ubv1pwaXw=
+github.com/dollarshaveclub/reframe.js v0.1.2-0.20200106225313-217b00c63c9c h1:ng4sc1c3RxBbD/F0yschsesmtqUrx55ESxkm3aSsLCA=
+github.com/dollarshaveclub/reframe.js v0.1.2-0.20200106225313-217b00c63c9c/go.mod h1:5xAjkP/sWTKHLMj5kjp8IWpDLaVRuKCz/7ubv1pwaXw=
+github.com/dollarshaveclub/reframe.js v0.1.2-0.20200326183706-d8de71e1149e/go.mod h1:5xAjkP/sWTKHLMj5kjp8IWpDLaVRuKCz/7ubv1pwaXw=
+github.com/zenorocha/clipboard.js v1.7.1 h1:7bZ8DBKhBxsZIBLVcWK3sN0uGOdV/lNZoKeY8G7glI4=
+github.com/zenorocha/clipboard.js v2.0.6+incompatible h1:Lbgr4UEaRRvS+QX0NPLBcdZ+bwBiKtCDu+I1boSlAwM=
+github.com/zenorocha/clipboard.js v2.0.6+incompatible/go.mod h1:O4LYrBFJk1EQ3l9TUhF+Df4JmeMW5eApvdsQmgg8z0E=

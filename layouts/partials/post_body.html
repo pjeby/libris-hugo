@@ -1,4 +1,6 @@
 <!-- Scripts -->
-<script src="{{ "assets/js/plugins.js" | relURL }}"></script>
+{{ $plugins := resources.Match "plugins/*.min.js" -}}
+{{ $plugins = $plugins | resources.Concat "assets/js/plugins.js" -}}
+<script src="{{ $plugins.RelPermalink }}"></script>
 <script src="{{ "assets/js/prism.js" | relURL }}" data-manual></script>
 <script src="{{ "assets/js/main.js" | relURL }}"></script>
