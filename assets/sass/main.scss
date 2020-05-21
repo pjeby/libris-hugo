@@ -1,4 +1,3 @@
-
 // Font.
 $font: (
   primary: ("Lato", Helvetica, Arial, sans-serif),
@@ -6,7 +5,6 @@ $font: (
 );
 
 // Palette.
-{{ $palette := (index .Site.Params.palettes .Site.Params.palette).sass }}
 $palette: (
   primary:           #424b5f,
   secondary:         #283040,
@@ -15,8 +13,8 @@ $palette: (
   bg:                #f7f9fb,
   note:              #fcb41d,
   important:         #fc381d,
-  accent:            {{ $palette.accent1 }},
-  accent-alt:        {{ $palette.accent2 }},
+  accent:            {{ .accent1 }},
+  accent-alt:        {{ .accent2 }},
 );
 
 @import "imports/functions";

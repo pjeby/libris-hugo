@@ -1,25 +1,6 @@
 baseurl: "/"
 title: "Stackbit Libris Theme"
 page_load_js: "assets/js/main.js"
-params:
-  palette: blue
-  palettes:
-    blue:
-      sass:
-        accent1: "#00c6ff"
-        accent2: "#0072ff"
-    green:
-      sass:
-        accent1: "#12db5d"
-        accent2: "#11998e"
-    navy:
-      sass:
-        accent1: "#004e92"
-        accent2: "#000428"
-    violet:
-      sass:
-        accent1: "#8e2de2"
-        accent2: "#4a00e0"
 menu:
   main:
     - identifier: layouts
@@ -32,6 +13,8 @@ menu:
       weight: 6
 
 markup:
+  highlight:
+    codeFences: false
   goldmark:
     renderer:
       unsafe: true

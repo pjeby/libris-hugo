@@ -2,5 +2,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google" content="notranslate" />
-<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "assets/css/main.css" . | resources.ToCSS (dict "indentWidth" 4 "outputStyle" "nested" "precision" 10)).Permalink | relURL }}">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet">
+{{ $palette_name := .Param "palette" -}}
+{{ $palette_file := printf "assets/css/main-%s.css" $palette_name -}}
+{{ $palette_sass := (index .Site.Params.palettes $palette_name).sass -}}
+{{ $main_css := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate $palette_file $palette_sass -}}
+{{ $main_css = $main_css | resources.ToCSS (dict "indentWidth" 4 "outputStyle" "nested" "precision" 10) -}}
+<link rel="stylesheet" href="{{ $main_css.RelPermalink }}">
