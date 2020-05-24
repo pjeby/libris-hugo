@@ -1,5 +1,5 @@
 {{ $tmp := slice }}
-{{ range $page := .Params.nav_items }}
+{{ range $page := .Param "chapter-contents" }}
   {{ $tmp = $tmp | append ($.GetPage $page) }}
 {{else}}
 {{ $tmp = (where .Pages "File.LogicalName" "!=" "_index.md").ByWeight }}

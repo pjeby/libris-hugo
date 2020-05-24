@@ -1,8 +1,8 @@
 {{ define "content" }}
 {{ template "page-head" .}}
 {{ $cards := slice -}}
-{{ $root_page := .Site.GetPage ( .Params.nav_top | default .Page.Section ) -}}
-{{ range $section_name := .Params.nav_pane -}}
+{{ $root_page := .Site.GetPage ( .Params.book | default .Page.Section ) -}}
+{{ range $section_name := .Params.chapters -}}
   {{ $section_page := $root_page.GetPage $section_name -}}
   {{ $child_pages := (where ($section_page.Pages) "File.LogicalName" "!=" "_index.md") -}}
   {{ $url := $section_page.RelPermalink -}}

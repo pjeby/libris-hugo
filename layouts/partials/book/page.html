@@ -1,7 +1,7 @@
   <div class="outer">
     <div class="inner">
       <div class="docs-content">
-        {{ partial "docs_menu" . }}
+        {{ partial "book/nav" . }}
         <article class="post type-docs">
           <div class="post-inside">
             <header class="post-header">
@@ -9,7 +9,7 @@
             </header><!-- .post-header -->
             <div class="post-content">
               {{ .Content }}
-              {{ with partialCached "fn/nav_children" . .Page -}}
+              {{ with partialCached "book/chapter-pages" . .Page -}}
                  <ul class="docs-section-items">
                    {{ range . }}
                    <li class="docs-section-item"><a href="{{ .RelPermalink }}" class="docs-item-link">{{ .Title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>

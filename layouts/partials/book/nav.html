@@ -3,14 +3,14 @@
     <button id="docs-nav-toggle" class="docs-nav-toggle">Navigate Docs<span class="icon-angle-right" aria-hidden="true"></span></button>
     <div class="docs-toc-wrap">
       <ul id="docs-toc" class="docs-toc">
-        {{- $root_page := .Site.GetPage "page" ( .Page.Params.nav_top | default .Page.Section ) }}
+        {{- $root_page := .Site.GetPage "page" ( .Page.Params.book | default .Page.Section ) }}
         <li class="toc-item{{ if eq .Page.File $root_page.File }} current{{ end }}">
           <a href="{{ $root_page.RelPermalink }}">{{ $root_page.Title }}</a>
         </li>
 
-        {{- range $section_name := .Page.Params.nav_pane -}}
+        {{- range $section_name := .Page.Params.chapters -}}
           {{ $section := $root_page.GetPage $section_name -}}
-          {{ $child_pages := partialCached "fn/nav_children" $section $section -}}
+          {{ $child_pages := partialCached "book/chapter-pages" $section $section -}}
           {{ $is_current_page := cond (eq $.File.Path $section.File.Path) true false -}}
           {{ $is_active := cond (or (eq ($.File.Dir | replaceRE "/$" "") ($section.File.Dir | replaceRE "/$" "")) (eq $.File.Path $section.File.Path)) true false }}
           <li class="toc-item{{ if $child_pages }} has-children{{ end }}{{ if $is_current_page }} current{{ end }}{{ if $is_active }} active{{ end }}">

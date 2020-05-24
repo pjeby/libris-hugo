@@ -4,7 +4,7 @@ subtitle: >-
   An optional subtitle
 image: images/5.jpg
 blocks:
-  - section_id: cta
+  - id: cta
     type: cta
     title: The Title of The Call to Action Block
     subtitle: >-

@@ -4,9 +4,10 @@ menus:
   main:
     weight: 2
     name: Docs
+
 cascade:
-  layout: docs
-  nav_pane:
+  type: book
+  chapters:
     - about
     - getting-started
     - ui-components
