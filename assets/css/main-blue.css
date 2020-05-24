@@ -649,18 +649,18 @@ img {
     border-top: 4px solid transparent;
     right: -4px; }
 
-.block-item-cta a,
+.card-cta a,
 .read-more-link {
   display: inline-block;
   padding-right: 24px;
   position: relative; }
-  .block-item-cta a .icon-arrow-right,
+  .card-cta a .icon-arrow-right,
   .read-more-link .icon-arrow-right {
     left: 100%;
     margin-left: -16px;
     -webkit-transition: width .3s ease;
     transition: width .3s ease; }
-  .block-item-cta a:hover .icon-arrow-right, .block-item-cta a:focus .icon-arrow-right,
+  .card-cta a:hover .icon-arrow-right, .card-cta a:focus .icon-arrow-right,
   .read-more-link:hover .icon-arrow-right,
   .read-more-link:focus .icon-arrow-right {
     width: 18px; }
@@ -1443,10 +1443,11 @@ img {
     font-size: 1.25rem;
     line-height: 1.5;
     margin: 0.9375rem 0 0; }
-  .hero-block + .block {
-    margin-top: -5em;
-    padding-top: 3.75em;
-    position: relative; }
+
+.hero-block + .block, header.page-header + .block {
+  margin-top: -5em;
+  padding-top: 3.75em;
+  position: relative; }
 
 /* Content block */
 .text-block {
@@ -1534,89 +1535,75 @@ img {
       flex: 2;
       padding-left: 1.125em;
       padding-right: 1.125em; } }
-/* Features block */
-.features-block:not(.has-header) {
+/* Cards blocks */
+.cards.outer:not(.has-header) {
   background: 0;
   padding-top: 0; }
 
-.features-block .block-header {
+.cards.outer .block-header {
   margin-bottom: 1.875em;
   text-align: center; }
 
-.features-block .block-title {
+.cards.outer .block-title {
   font-size: 1.875rem;
   margin: 0 0 0.5rem; }
 
-.docs-block,
-.showcase-block {
-  margin: -5em 0 3.75em;
-  position: relative; }
-  .docs-block:last-child,
-  .showcase-block:last-child {
-    padding-bottom: 1.875em; }
-
-.block-item-inside {
+.card-inside {
   background: #fff;
   border: 1px solid #dee5ef;
   border-radius: 3px;
   box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
   margin-bottom: 3vw;
   padding-bottom: 2.5em; }
+  .card-inside.no-image {
+    padding-top: 1.875em; }
 
-.block-item-preview {
+/* Linked image on card */
+.card-preview {
   border: 0;
   border-radius: 3px 3px 0 0;
   display: block; }
-  .block-item-preview .thumbnail {
+  .card-preview .thumbnail {
     border-radius: 3px 3px 0 0;
     width: 100%; }
+  .card-preview + .card-title, .card-preview + .card-text {
+    padding-top: 1.25em; }
+  .card-preview + .card-title {
+    font-size: 1.25rem;
+    margin: 0; }
+    .card-preview + .card-title + .card-text {
+      margin-top: 0.5rem; }
 
-.block-item-title {
+.card-title {
   font-size: 1.5rem;
   margin: 0 0 0.9375rem;
   padding-left: 2.25rem;
   padding-right: 2.25rem; }
-  .block-item-title a {
+  .card-title a {
     border: 0;
     color: inherit; }
-    .block-item-title a:hover, .block-item-title a:focus {
+    .card-title a:hover, .card-title a:focus {
       color: #67758d; }
 
-.block-item-text {
+.card-text {
   margin: 0 0 1.25rem;
   padding-left: 2.25rem;
   padding-right: 2.25rem; }
 
-.block-item-cta {
+.card-cta {
   padding-left: 2.25rem;
   padding-right: 2.25rem; }
-  .block-item-cta a {
+  .card-cta a {
     border: 0;
     color: #00c6ff; }
 
-.block-item-title:last-child,
-.block-item-text:last-child,
-.block-item-cta:last-child {
+.card-title:last-child,
+.card-text:last-child,
+.card-cta:last-child {
   margin-bottom: 0; }
 
-.features-block .block-item-inside,
-.docs-block .block-item-inside {
-  padding-top: 1.875em; }
-
-.showcase-block .block-item-title {
-  font-size: 1.25rem;
-  margin: 0;
-  padding-top: 1.875em; }
-
-.showcase-block .block-item-title + .block-item-text {
-  margin-top: 0.5rem; }
-
-.showcase-block .block-item-preview + .block-item-title,
-.showcase-block .block-item-preview + .block-item-text {
-  padding-top: 1.25em; }
-
 @media only screen and (min-width: 641px) {
-  .block-items {
+  .card-items {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
@@ -1625,61 +1612,51 @@ img {
     flex-wrap: wrap;
     margin-left: -1.5vw;
     margin-right: -1.5vw; }
-  .block-item {
+  .card {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
-    flex-direction: column; }
-  .block-item-inside {
+    flex-direction: column;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%; }
+  .card-inside {
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     margin-left: 1.5vw;
     margin-right: 1.5vw; }
-  .showcase-block .block-item,
-  .docs-block .block-item {
-    -webkit-flex: 0 0 50%;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%; }
-  .features-block .block-item {
-    -webkit-flex: 1 1 280px;
-    -ms-flex: 1 1 280px;
-    flex: 1 1 280px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 680px; }
-  .features-block .block-item {
+  .cards.stretch .card {
     -webkit-flex: 1 1 274px;
     -ms-flex: 1 1 274px;
     flex: 1 1 274px;
     margin-left: auto;
     margin-right: auto;
     max-width: 680px; }
-    .features-block .block-item:first-child:nth-last-child(2), .features-block .block-item:first-child:nth-last-child(2) ~ .block-item, .features-block .block-item:first-child:nth-last-child(4), .features-block .block-item:first-child:nth-last-child(4) ~ .block-item {
+    .cards.stretch .card:first-child:nth-last-child(2), .cards.stretch .card:first-child:nth-last-child(2) ~ .card, .cards.stretch .card:first-child:nth-last-child(4), .cards.stretch .card:first-child:nth-last-child(4) ~ .card {
       -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
       flex: 0 0 50%; } }
 
 @media only screen and (min-width: 861px) {
-  .showcase-block .block-item,
-  .docs-block .block-item {
+  .card {
     -webkit-flex: 0 0 33.333%;
     -ms-flex: 0 0 33.333%;
     flex: 0 0 33.333%; } }
 
 @media only screen and (min-width: 1101px) {
-  .features-block .block-item {
+  .cards.stretch .card {
     -webkit-flex: 1 1 340px;
     -ms-flex: 1 1 340px;
     flex: 1 1 340px; } }
 
 @media only screen and (min-width: 1201px) {
-  .block-items {
+  .card-items {
     margin-left: -1.125em;
     margin-right: -1.125em; }
-  .block-item-inside {
+  .card-inside {
     margin-bottom: 2.25em;
     margin-left: 1.125em;
     margin-right: 1.125em; } }
