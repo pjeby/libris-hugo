@@ -9,35 +9,43 @@
       </div><!-- .inner-medium -->
     </div><!-- .outer-->
   </article><!-- .post -->
-
-  <!-- Next/previous post navigation TBD -->
-  <!--
   <div class="outer">
     <div class="inner-medium">
       <nav class="read-next">
         <h2 class="read-next-title line-left">Read Next</h2>
         <div class="nav-links">
+        {{ with .Prev -}}
+          {{ if eq .Section $.Section -}}
           <article class="post">
+            {{ with .Date -}}
             <div class="post-meta">
-              <time class="published" datetime="">Previous post date</time>
+              <time class="published" datetime="{{ . | dateFormat "2006-01-02 15:04:05-0700" }}">{{ . | dateFormat "January 02, 2006" }}</time>
             </div>
-            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            {{ end -}}
+            <h3 class="post-title"><a href="{{.RelPermalink}}" rel="bookmark">{{.Title}}</a></h3>
           </article>
+          {{ end -}}
+        {{ end -}}
+        {{ with .Next -}}
+          {{ if eq .Section $.Section -}}
           <article class="post">
+            {{ with .Date -}}
             <div class="post-meta">
-              <time class="published" datetime="">Next post date</time>
+              <time class="published" datetime="{{ . | dateFormat "2006-01-02 15:04:05-0700" }}">{{ . | dateFormat "January 02, 2006" }}</time>
             </div>
-            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            {{ end -}}
+            <h3 class="post-title"><a href="{{.RelPermalink}}" rel="bookmark">{{.Title}}</a></h3>
           </article>
+          {{ end }}
+        {{ end}}
         </div>
       </nav>
     </div>
   </div>
-  -->
 {{ end }}
 {{ define "title-area" }}
 <div class="post-meta">
-  <time class="published" datetime="{{ .Date | dateFormat "2006-01-02 15:04" }}">{{ .Date | dateFormat "January 02, 2006" }}</time>
+  <time class="published" datetime="{{ .Date | dateFormat "2006-01-02 15:04:05-0700" }}">{{ .Date | dateFormat "January 02, 2006" }}</time>
 </div><!-- .post-meta -->
 <h1 class="post-title">{{ .Params.title }}</h1>
 {{ with .Params.subtitle }}<div class="post-subtitle">{{ . | safeHTML }}</div><!-- .post-subtitle -->{{ end }}

@@ -3,37 +3,34 @@
   <div class="outer">
     <div class="inner-medium">
       <div class="post-feed">
-        {{ $display_posts := ((.Site.GetPage "section" "/posts").Pages).ByDate.Reverse }}
-        {{ range $post := $display_posts }}
+        {{ $paginator := .Paginate ((.Site.GetPage "section" "/posts").Pages).ByDate.Reverse }}
+        {{ range $paginator.Pages }}
         <article class="post">
-          {{ if $post.Params.thumbnail }}
-          <a class="post-thumbnail" href="{{ $post.RelPermalink }}">
-            <img class="thumbnail" src="{{ $post.Params.thumbnail | relURL }}" alt="{{ $post.Params.title }}" />
+          {{ if .Params.thumbnail }}
+          <a class="post-thumbnail" href="{{ .RelPermalink }}">
+            <img class="thumbnail" src="{{ .Params.thumbnail | relURL }}" alt="{{ .Params.title }}" />
           </a>
           {{ end }}
           <header class="post-header">
             <div class="post-meta">
-              <time class="published" datetime="{{ $post.Date | dateFormat "2006-01-02 15:04" }}">{{ $post.Date | dateFormat "January 02, 2006" }}</time>
+              <time class="published" datetime="{{ .Date | dateFormat "2006-01-02 15:04:05-0700" }}">{{ .Date | dateFormat "January 02, 2006" }}</time>
             </div>
-            <h2 class="post-title line-left"><a href="{{ $post.RelPermalink }}" rel="bookmark">{{ $post.Params.title }}</a></h2>
+            <h2 class="post-title line-left"><a href="{{ .RelPermalink }}" rel="bookmark">{{ .Params.title }}</a></h2>
           </header><!-- .post-header -->
-          <p class="post-excerpt">{{ $post.Summary }}</p>
-          <p class="read-more"><a href="{{ $post.RelPermalink }}" class="read-more-link">Read More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
+          <p class="post-excerpt">{{ .Summary }}</p>
+          <p class="read-more"><a href="{{ .RelPermalink }}" class="read-more-link">Read More <span class="icon-arrow-right" aria-hidden="true"></span></a></p>
         </article><!-- .post -->
         {{ end }}
       </div><!-- .post-feed -->
-
-      <!-- Pagination TBD -->
-      <!--
+{{- with $paginator}}{{if gt .TotalPages 1 }}
       <nav class="pagination">
         <div class="nav-links">
-          <span class="page-number">Showing page X of Y</span>
-          <a class="newer-posts button" href="#"><span class="icon-arrow-left" aria-hidden="true"></span><span class="button-text">Prev</span></a>
-          <a class="older-posts button" href="#"><span class="button-text">Next</span><span class="icon-arrow-right" aria-hidden="true"></span></a>
+          <span class="page-number">Page {{.PageNumber}} of {{.TotalPages}}</span>
+          {{ if .HasPrev }}<a class="newer-posts button" href="{{.Prev.URL}}"><span class="icon-arrow-left" aria-hidden="true"></span><span class="button-text">Prev</span></a>{{end}}
+          {{ if .HasNext }}<a class="older-posts button" href="{{.Next.URL}}"><span class="button-text">Next</span><span class="icon-arrow-right" aria-hidden="true"></span></a>{{end}}
         </div>
       </nav>
-      -->
-
+{{- end}}{{end}}
   </div><!-- .inner-medium -->
 </div><!-- .outer-->
 
