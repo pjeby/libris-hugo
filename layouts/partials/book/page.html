@@ -11,11 +11,11 @@
               {{ .Content }}
               {{ with partialCached "book/chapter-pages" . .Page -}}
                  <ul class="docs-section-items">
-                   {{ range . }}
+                   {{ range . -}}
                    <li class="docs-section-item"><a href="{{ .RelPermalink }}" class="docs-item-link">{{ .Title }}<span class="icon-angle-right" aria-hidden="true"></span></a></li>
-                   {{ end }}
+                   {{- end }}
                  </ul><!-- .docs-section-pages -->
-              {{ end }}
+              {{ end -}}
             </div><!-- .post-content -->
           </div><!-- .post-inside -->
         </article><!-- .post -->

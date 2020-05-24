@@ -1,6 +1,6 @@
 {{ $ = index . 0 -}}
 {{ with index . 1 -}}
   {{ range . -}}
-  {{ partial (printf "block/%s" .type) (slice $ .) }}
+  {{ partial (printf "block/%s" .type) (slice $ .) -}}
   {{ end -}}
 {{ end -}}

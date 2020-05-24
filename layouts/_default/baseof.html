@@ -14,13 +14,13 @@
 {{ partial "post_body.html" . }}
 </body>
 </html>
-{{define "page-head"}}
+{{define "page-head" -}}
   <header class="page-header bg-gradient outer">
     {{ with .Params.image -}}
     <div class="bg-img" style="background-image: url('{{ . | relURL }}')"></div>
-    {{- end }}
+    {{- end -}}
     <div class="inner-small">
-    {{ block "title-area" . }}
+    {{ block "title-area" . -}}
       <h1 class="page-title">{{ .Params.title }}</h1>
       {{ with .Params.subtitle -}}
       <p class="page-subtitle">{{ . }}</p>
@@ -28,4 +28,4 @@
     {{- end }}
     </div><!-- .inner-small -->
   </header><!--.page-header -->
-{{end}}
+{{- end}}

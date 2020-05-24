@@ -1,22 +1,22 @@
-{{ $ = index . 0 }}
-{{ with index . 1 }}
+{{ $ = index . 0 -}}
+{{ with index . 1 -}}
 <section class="card">
   <div class="card-inside {{if .image}}has{{else}}no{{end}}-image">
 	{{ if .image -}}
 	<a class="card-preview" href="{{ .url | default "#" }}">
 	  <img class="thumbnail" src="{{ .image | relURL }}" alt="{{ .title }}" />
 	</a>
-	{{- end }}
+	{{ end -}}
     <h2 class="card-title{{ if .highlight }} line-left{{ end }}"
       >{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
     <div class="card-text">{{ .content | default .subtitle | $.RenderString }}</div>
-    {{- with .actions }}
+    {{ with .actions -}}
       <div class="card-cta">
-      {{ range  . }}
+      {{ range  . -}}
         <a href="{{ partial "fn/resolved-url" (slice $ .url) }}">{{ .label }}<span class="icon-arrow-right" aria-hidden="true"></span></a>
-      {{ end }}
+      {{- end }}
       </div>
-    {{- end }}
+    {{ end -}}
   </div><!-- .card-inside -->
 </section><!-- card -->
-{{ end }}
+{{- end }}

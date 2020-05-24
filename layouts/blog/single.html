@@ -36,17 +36,17 @@
             {{ end -}}
             <h3 class="post-title"><a href="{{.RelPermalink}}" rel="bookmark">{{.Title}}</a></h3>
           </article>
-          {{ end }}
-        {{ end}}
+          {{- end }}
+        {{- end -}}
         </div>
       </nav>
     </div>
   </div>
 {{ end }}
-{{ define "title-area" }}
+{{ define "title-area" -}}
 <div class="post-meta">
   <time class="published" datetime="{{ .Date | dateFormat "2006-01-02 15:04:05-0700" }}">{{ .Date | dateFormat "January 02, 2006" }}</time>
 </div><!-- .post-meta -->
 <h1 class="post-title">{{ .Params.title }}</h1>
 {{ with .Params.subtitle }}<div class="post-subtitle">{{ . | safeHTML }}</div><!-- .post-subtitle -->{{ end }}
-{{ end }}
+{{- end }}
