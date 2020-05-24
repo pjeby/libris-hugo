@@ -5,7 +5,6 @@ summary: >-
 date: 2019-03-10
 thumbnail: images/2.jpg
 image: images/2.jpg
-layout: post
 ---
 
 **Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac ut consequat semper viverra nam libero justo laoreet sit. Tincidunt id aliquet risus feugiat in ante. Non diam phasellus vestibulum lorem sed. Morbi quis commodo odio aenean. 

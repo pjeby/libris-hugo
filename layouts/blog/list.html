@@ -3,7 +3,7 @@
   <div class="outer">
     <div class="inner-medium">
       <div class="post-feed">
-        {{ $paginator := .Paginate ((.Site.GetPage "section" "/posts").Pages).ByDate.Reverse }}
+        {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
         {{ range $paginator.Pages }}
         <article class="post">
           {{ if .Params.thumbnail }}

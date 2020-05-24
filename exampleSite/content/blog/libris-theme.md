@@ -5,7 +5,6 @@ summary: >-
 date: 2019-04-24
 thumbnail: images/4.jpg
 image: images/3.jpg
-layout: post
 ---
 
 **Vis accumsan feugiat** adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. 

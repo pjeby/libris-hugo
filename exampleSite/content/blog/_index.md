@@ -7,5 +7,7 @@ menus:
   main:
     weight: 3
     title: Blog
-layout: blog
+
+cascade:
+  type: blog
 ---
