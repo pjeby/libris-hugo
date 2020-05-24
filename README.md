@@ -218,14 +218,28 @@ To display social icons in the footer, update the `social.json` file located in 
 
 ## Color palettes
 
-Libris supports the following color palettes:
+Libris supports the following color palettes by default:
 
 - blue (default)
 - green
 - navy
 - violet
 
-To change the color palette, update the `palette` variable in config.yaml, or set it on individual pages (or parts of your site with `cascade:`).
+To change the color palette, update the `palette` variable under `params` in config.yaml, or set it on individual pages (or parts of your site with `cascade:`).
+
+You can also define custom palettes (or redefine the built-in ones) in your site's `params`, like this:
+
+```yaml
+params:
+  palette/magenta:
+    sass:
+      accent1: "#841099"  # used for links and quote/highlight bars, right side of hero gradient
+      accent2: "#910057"  # used for left side of hero gradient
+```
+
+And then use them by setting e.g. `palette: magenta` either in the site params, the params of an individual page, or a `cascade:` to set the default for an entire section of your site.
+
+(Note: palettes' color schemes can only be defined globally for the site, as each one used in the site generates its own style sheet, named after the palette.  So for example, if the above `magenta` palette is used in the site, an  `/assets/css/main-magenta.css` file is generated, and shared by all pages using that palette.)
 
 ## Credits
 

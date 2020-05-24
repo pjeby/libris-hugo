@@ -3,23 +3,22 @@ params:
   palette: blue
 
   # Default color palettes; list can be expanded or overridden in site params
-  palettes:
-    blue:
-      sass:
-        accent1: "#00c6ff"
-        accent2: "#0072ff"
-    green:
-      sass:
-        accent1: "#12db5d"
-        accent2: "#11998e"
-    navy:
-      sass:
-        accent1: "#004e92"
-        accent2: "#000428"
-    violet:
-      sass:
-        accent1: "#8e2de2"
-        accent2: "#4a00e0"
+  palette/blue:
+    sass:
+      accent1: "#00c6ff"
+      accent2: "#0072ff"
+  palette/green:
+    sass:
+      accent1: "#12db5d"
+      accent2: "#11998e"
+  palette/navy:
+    sass:
+      accent1: "#004e92"
+      accent2: "#000428"
+  palette/violet:
+    sass:
+      accent1: "#8e2de2"
+      accent2: "#4a00e0"
 
 module:
   hugoVersion:
