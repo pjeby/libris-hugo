@@ -35,7 +35,12 @@
   </url>
   
   <url>
-    <loc>/posts/community.html</loc>
+    <loc>/blog.html</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/community.html</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -45,31 +50,22 @@
   </url>
   
   <url>
-    <loc>/posts.html</loc>
-    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/libris-theme.html</loc>
+    <loc>/blog/libris-theme.html</loc>
     <lastmod>2019-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/conf.html</loc>
+    <loc>/blog/conf.html</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/function-of-design.html</loc>
+    <loc>/blog/function-of-design.html</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/about.html</loc>
-  </url>
-  
-  <url>
-    <loc>/blog.html</loc>
   </url>
   
   <url>
