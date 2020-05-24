@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Style Guide - Stackbit Libris Theme</title>
+<title>Style Guide - Libris Hugo Theme</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google" content="notranslate" />
-<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="./assets/css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/main-blue.css">
 
 </head>
 <body>
@@ -94,21 +94,13 @@
 
   <main id="content" class="site-content">
     
-
   <article class="post page post-full">
-    <header class="post-header bg-gradient outer">
-      
-      <div class="bg-img" style="background-image: url('/images/5.jpg')"></div>
-      
-      <div class="inner-small">
-        <h1 class="post-title">Style Guide</h1>
-        
-        <div class="post-subtitle">
-          The style guide provides you with a blueprint of default post and page styles.
-        </div>
-        
-      </div>
-    </header>
+    <header class="page-header bg-gradient outer">
+    <div class="bg-img" style="background-image: url('/images/5.jpg')"></div><div class="inner-small">
+    <h1 class="page-title">Style Guide</h1>
+      <p class="page-subtitle">The style guide provides you with a blueprint of default post and page styles.</p>
+    </div>
+  </header>
     <div class="outer">
       <div class="inner-medium">
         <div class="post-content">
@@ -148,26 +140,28 @@
 <iframe src="https://player.vimeo.com/video/335879257" width="640" height="338" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 <h2 id="code-blocks">Code Blocks</h2>
 <p>Blocks of code are either fenced by <code>lines with three back-ticks</code>, or are indented with four spaces.</p>
-<pre><code>&lt;!-- Some example CSS code --&gt;
+<pre><code class="language-css">&lt;!-- Some example CSS code --&gt;
 body {
   color:red;
 }
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">window.<span style="color:#a6e22e">$docsify</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">coverpage</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</code></pre>
+<pre><code class="language-javascript">window.$docsify = {
+  coverpage: true,
 
-  <span style="color:#75715e">// Custom file name
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">coverpage</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cover.md&#39;</span>,
+  // Custom file name
+  coverpage: 'cover.md',
 
-  <span style="color:#75715e">// mutiple covers
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">coverpage</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#e6db74">&#39;/zh-cn/&#39;</span>],
+  // mutiple covers
+  coverpage: ['/', '/zh-cn/'],
 
-  <span style="color:#75715e">// mutiple covers and custom file name
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">coverpage</span><span style="color:#f92672">:</span> {
-    <span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cover.md&#39;</span>,
-    <span style="color:#e6db74">&#39;/zh-cn/&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cover.md&#39;</span>
+  // mutiple covers and custom file name
+  coverpage: {
+    '/': 'cover.md',
+    '/zh-cn/': 'cover.md'
   }
 };
-</code></pre></div><h2 id="tables">Tables</h2>
+</code></pre>
+<h2 id="tables">Tables</h2>
 <table>
     <caption>Table with thead, tfoot, and tbody</caption>
   <thead>
@@ -196,7 +190,6 @@ body {
       </div>
     </div>
   </article>
-
 
   </main>
   <footer id="colophon" class="site-footer outer">

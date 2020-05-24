@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Plug-ins - Stackbit Libris Theme</title>
+<title>Plug-ins - Libris Hugo Theme</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google" content="notranslate" />
-<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="../../assets/css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/main-blue.css">
 
 </head>
 <body>
@@ -184,12 +184,13 @@ if (condition) {
 ```
 </pre>
 <p>The rendered output looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">condition</span>) {
-  <span style="color:#a6e22e">code</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">run</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">condition</span> <span style="color:#a6e22e">is</span> <span style="color:#66d9ef">true</span>
-} <span style="color:#66d9ef">else</span> {
-  <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">some</span> <span style="color:#a6e22e">other</span> <span style="color:#a6e22e">code</span> <span style="color:#a6e22e">instead</span>
+<pre><code class="language-javascript">if (condition) {
+  code to run if condition is true
+} else {
+  run some other code instead
 }
-</code></pre></div><p>Or to highlight the <strong>CSS</strong> code, specify <code>css</code> next to the tick marks before the fenced code block:</p>
+</code></pre>
+<p>Or to highlight the <strong>CSS</strong> code, specify <code>css</code> next to the tick marks before the fenced code block:</p>
 <pre>
 ```css
 body {
@@ -209,21 +210,22 @@ a:hover {
 ```
 </pre>
 <p>The rendered output looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
-  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#fff</span>;
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#666</span>;
-  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.66667</span>; }
+<pre><code class="language-css">body {
+  background: #fff;
+  color: #666;
+  line-height: 1.66667; }
 
-<span style="color:#f92672">a</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#d4a259</span>;
-  <span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">underline</span>;
-  <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">background</span> <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">ease</span>, <span style="color:#66d9ef">color</span> <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">ease</span>;
-  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">background</span> <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">ease</span>, <span style="color:#66d9ef">color</span> <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">ease</span>; }
+a {
+  color: #d4a259;
+  text-decoration: underline;
+  -webkit-transition: background .3s ease, color .3s ease;
+  transition: background .3s ease, color .3s ease; }
 
-<span style="color:#f92672">a</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1d1d1d</span>;
-  <span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">none</span>; }
-</code></pre></div><h2 id="tables">Tables</h2>
+a:hover {
+  color: #1d1d1d;
+  text-decoration: none; }
+</code></pre>
+<h2 id="tables">Tables</h2>
 <p>You can build tables with markdown to help you organize information. To add a table, use three or more hyphens (&mdash;) to create each column’s header, and use pipes (|) to separate each column like in the example below.</p>
 <pre>
 | Title | Title |
@@ -250,8 +252,7 @@ a:hover {
 </tbody>
 </table>
 
-                
-            </div>
+              </div>
           </div>
         </article>
         <nav id="page-nav" class="page-nav">

@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Quick Start - Stackbit Libris Theme</title>
+<title>Quick Start - Libris Hugo Theme</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google" content="notranslate" />
-<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="../../assets/css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/main-blue.css">
 
 </head>
 <body>
@@ -178,18 +178,20 @@
 <p>There are two types of callouts availabale in this theme, <strong>note</strong> and <strong>important</strong>. To add a callout to your documentation simply add the following <code>html</code> code with class <code>important</code> or <code>note</code>. Like in the example bellow.</p>
 <h3 id="html-example">HTML example</h3>
 <p>Copy the code and modify these blocks according to your needs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;important&#34;</span>&gt;
-  &lt;<span style="color:#f92672">strong</span>&gt;Important:&lt;/<span style="color:#f92672">strong</span>&gt; 
-  This is an &#34;Important&#34; callout block of text.
+<pre><code class="language-html">&lt;div class=&quot;important&quot;&gt;
+  &lt;strong&gt;Important:&lt;/strong&gt; 
+  This is an &quot;Important&quot; callout block of text.
   This block indicates a warning or caution. 
   Use it for an important message. 
-&lt;/<span style="color:#f92672">div</span>&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note&#34;</span>&gt;
-  &lt;<span style="color:#f92672">strong</span>&gt;Note:&lt;/<span style="color:#f92672">strong</span>&gt; 
-  This is a &#34;Note&#34; callout block of text. 
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;note&quot;&gt;
+  &lt;strong&gt;Note:&lt;/strong&gt; 
+  This is a &quot;Note&quot; callout block of text. 
   This block signifies a general note.
-&lt;/<span style="color:#f92672">div</span>&gt;
-</code></pre></div><h3 id="live-example">Live example</h3>
+&lt;/div&gt;
+</code></pre>
+<h3 id="live-example">Live example</h3>
 <div class="important">
   <strong>Important:</strong> 
   This is an "Important" callout block of text. 
@@ -221,7 +223,8 @@ if (condition) {
 } else {
   run some other code instead
 }
-</code></pre><h3 id="syntax-highlighting">Syntax highlighting</h3>
+</code></pre>
+<h3 id="syntax-highlighting">Syntax highlighting</h3>
 <p>You can add a language identifier to enable syntax highlighting in your code block. For example, to syntax highlight <strong>JavaScript</strong> code, specify <code>javascript</code> next to the tick marks before the fenced code block:</p>
 <pre>
 ```javascript
@@ -233,12 +236,13 @@ if (condition) {
 ```
 </pre>
 <p>The rendered output looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">condition</span>) {
-  <span style="color:#a6e22e">code</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">run</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">condition</span> <span style="color:#a6e22e">is</span> <span style="color:#66d9ef">true</span>
-} <span style="color:#66d9ef">else</span> {
-  <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">some</span> <span style="color:#a6e22e">other</span> <span style="color:#a6e22e">code</span> <span style="color:#a6e22e">instead</span>
+<pre><code class="language-javascript">if (condition) {
+  code to run if condition is true
+} else {
+  run some other code instead
 }
-</code></pre></div><h2 id="tables">Tables</h2>
+</code></pre>
+<h2 id="tables">Tables</h2>
 <hr>
 <p>You can build tables with markdown to help you organize information. To add a table, use three or more hyphens (&mdash;) to create each column’s header, and use pipes (|) to separate each column like in the example below.</p>
 <pre>
@@ -275,8 +279,7 @@ if (condition) {
 <p><strong>Why not start using this theme today?</strong></p>
 <p><a href="https://www.stackbit.com/" class="button">Join Stackbit</a></p>
 
-                
-            </div>
+              </div>
           </div>
         </article>
         <nav id="page-nav" class="page-nav">

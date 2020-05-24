@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Introducing The Libris Theme - Stackbit Libris Theme</title>
+<title>Introducing The Libris Theme - Libris Hugo Theme</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google" content="notranslate" />
-<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="../assets/css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main-blue.css">
 
 </head>
 <body>
@@ -94,55 +94,68 @@
 
   <main id="content" class="site-content">
     
-
   <article class="post post-full">
-    <header class="post-header bg-gradient outer">
-      
-      <div class="bg-img" style="background-image: url('/images/3.jpg')"></div>
-      
-      <div class="inner-small">
-        <div class="post-meta">
-          <time class="published" datetime="2019-04-24 00:00">April 24, 2019</time>
-        </div>
-        <h1 class="post-title">Introducing The Libris Theme</h1>
-        
-      </div>
-    </header>
+  <header class="page-header bg-gradient outer">
+    <div class="bg-img" style="background-image: url('/images/3.jpg')"></div><div class="inner-small">
+    <div class="post-meta">
+  <time class="published" datetime="2019-04-24 00:00:00&#43;0000">April 24, 2019</time>
+</div>
+<h1 class="post-title">Introducing The Libris Theme</h1>
+
+    </div>
+  </header>
     <div class="outer">
       <div class="inner-medium">
         <div class="post-content">
           <p><strong>Vis accumsan feugiat</strong> adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor.</p>
 <p>Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">type</span>) {
-  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;Object&#39;</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">objId</span>(<span style="color:#a6e22e">o</span>);
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">visited</span>[<span style="color:#a6e22e">id</span>]) {
-      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">visited</span>[<span style="color:#a6e22e">id</span>];
+<pre><code class="language-javascript">switch (type) {
+  case 'Object':
+    id = _.util.objId(o);
+    if (visited[id]) {
+      return visited[id];
     }
-    <span style="color:#a6e22e">clone</span> <span style="color:#f92672">=</span> {};
-    <span style="color:#a6e22e">visited</span>[<span style="color:#a6e22e">id</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>;
+    clone = {};
+    visited[id] = clone;
 
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">o</span>) {
-      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#a6e22e">key</span>)) {
-        <span style="color:#a6e22e">clone</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">deepClone</span>(<span style="color:#a6e22e">o</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">visited</span>);
+    for (var key in o) {
+      if (o.hasOwnProperty(key)) {
+        clone[key] = deepClone(o[key], visited);
       }
     }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">clone</span>;
+    return clone;
 
-  <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">o</span>;
+  default:
+    return o;
 }
-</code></pre></div><p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
+</code></pre>
+<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
 <p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
 
         </div>
       </div>
     </div>
   </article>
-
-  
-  
-
+  <div class="outer">
+    <div class="inner-medium">
+      <nav class="read-next">
+        <h2 class="read-next-title line-left">Read Next</h2>
+        <div class="nav-links">
+        <article class="post">
+            <div class="post-meta">
+              <time class="published" datetime="2019-03-10 00:00:00&#43;0000">March 10, 2019</time>
+            </div>
+            <h3 class="post-title"><a href="../blog/conf.html" rel="bookmark">New Conference</a></h3>
+          </article>
+          <article class="post">
+            <div class="post-meta">
+              <time class="published" datetime="2019-05-27 00:00:00&#43;0000">May 27, 2019</time>
+            </div>
+            <h3 class="post-title"><a href="../blog/community.html" rel="bookmark">Community Round-up</a></h3>
+          </article></div>
+      </nav>
+    </div>
+  </div>
 
   </main>
   <footer id="colophon" class="site-footer outer">
