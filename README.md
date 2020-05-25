@@ -212,11 +212,44 @@ Currently this theme has three content types: `book` (for documentation) and `bl
 * `single` -- Automatically used for posts of `type: blog`; displays next/previous navigation and a hero image from the `image` front-matter, if present.  If a `thumbnail` property is set, that image will be used in the blog's home page listing.
 * `list` -- Automatically used for sections of `type: blog`; displays a reverse-chronological list of pages in that section, paginated with Hugo pagination.  Posts are shown with a thumbnail (if set), title, and summary.
 
-## Social Links
+## Header, Footer, and Social Links
 
-To display social icons in the footer, update the `social.json` file located in the `data` folder. You can use any icon supported by [Font Awesome](https://fontawesome.com/icons?d=gallery&s=brands) and just need to specify the appropriate Font Awesome class name as the `icon` value.
+You can control various header and footer settings from your site parameters, or using page front matter and cascades.  Here are the settings used by the example site:
 
-## Color palettes
+```yaml
+params:
+  header-title: Libris          # defaults to .Site.Title if not set
+  header-logo: images/logo.svg  # no logo displayed if not set; set to false to explicitly disable
+  header-menu: main             # name of the menu to display in the header, or false to disable
+  header-url: /                 # the page the linked logo or title will go to; defaults to /
+
+  # Markdown text to be displayed in the footer
+  footer-text: "&copy; Stackbit and Contributors.&nbsp; All rights reserved."
+  footer-links:
+    # Each link will be rendered as the link followed by a '.'
+    - text: Inspired by Stackbit Libris
+      url: https://www.stackbit.com
+      new_window: true  # open this link in a new window
+
+  footer-social:
+    # Each link will be displayed as an icon of the given type
+    # To override the icon used, add an 'icon' field with a FontAwesome class, e.g. 'fa-facebook'
+    - type: twitter
+      title: Twitter
+      url: https://twitter.com/
+    - type: instagram
+      title: Instagram
+      url: https://www.instagram.com/
+    - type: github
+      title: Github
+      url: https://github.com/pjeby/libris-hugo/
+```
+
+Social link icons can be any icon supported by [Font Awesome](https://fontawesome.com/icons?d=gallery&s=brands) and just need to specify the appropriate Font Awesome class name as an `icon` value.  If no `icon` is given, it defaults to `fa-` plus the `type` of that link. Setting `footer-social` to an empty list disables the social links.
+
+Any or all of these settings can be overridden on an individual page by putting the fields in the page's front matter.  You can also put them under the page's `cascade:` to set them for that page and all sub-pages, for example to set them for a project, book, or blog section of the site.
+
+## Color Palettes
 
 Libris supports the following color palettes by default:
 

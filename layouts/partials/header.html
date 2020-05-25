@@ -2,30 +2,33 @@
   <div class="inner">
     <div class="site-header-inside">
       <div class="site-branding">
-        {{ if .Site.Data.header.logo_img }}
+      {{ $logo  := .Param "header-logo" -}}
+      {{ $title := .Param "header-title" | default .Site.Title -}}
+      {{ $url   := .Param "header-url"   | default "/" -}}
+      {{ $menu  := .Param "header-menu"  | default "main" -}}
+        {{ if $logo -}}
         <p class="site-logo">
-          <a href="{{ .Site.Data.header.url | default "/" | relURL }}">
-            <img src="{{ .Site.Data.header.logo_img | relURL }}" alt="Logo" />
+          <a href="{{ $url | relURL }}">
+            <img src="{{ $logo | relURL }}" alt="Logo" />
           </a>
         </p><!-- .site-logo -->
-        {{ end }}
-        {{ if eq .Params.layout "home" }}
-        <h1 class="site-title"><a href="{{ .Site.Data.header.url | default "/" | relURL }}">{{ .Site.Data.header.title }}</a></h1>
-        {{ else }}
-        <p class="site-title"><a href="{{ .Site.Data.header.url | default "/" | relURL }}">{{ .Site.Data.header.title }}</a></p>
-        {{ end }}
+        {{- end }}
+        {{ if eq (.Param "layout") "home" -}}
+        <h1 class="site-title"><a href="{{ $url | relURL }}">{{$title}}</a></h1>
+        {{- else -}}
+        <p class="site-title"><a href="{{ $url | relURL }}">{{$title}}</a></p>
+        {{- end }}
       </div><!-- .site-branding -->
-      {{ if and .Site.Menus.main .Site.Data.header.has_nav }}
+      {{ if $menu }}{{with index .Site.Menus $menu -}}
       <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
         <div class="site-nav-inside">
           <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
-          {{ $menu := .Site.Menus.main }}
-          {{ $include_dict := dict "menu" $menu "menu_class" "menu" "page" . }}
+          {{ $include_dict := dict "menu" . "menu_class" "menu" "page" $ }}
           {{ partial "menu.html" $include_dict }}
         </div><!-- .site-nav-inside -->
       </nav><!-- .site-navigation -->
       <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
-      {{ end }}
+      {{ end }}{{ end }}
     </div><!-- .site-header-inside -->
   </div><!-- .inner -->
 </header><!-- .site-header -->

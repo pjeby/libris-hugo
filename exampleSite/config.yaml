@@ -1,6 +1,26 @@
 baseurl: "/"
+params:
+  header-title: Libris
+  header-logo: images/logo.svg
+  header-menu: main
+  header-url: /
+  footer-text: "&copy; Stackbit and Contributors.&nbsp; All rights reserved."
+  footer-links:
+    - text: Inspired by Stackbit Libris
+      url: https://www.stackbit.com
+      new_window: true
+  footer-social:
+    - type: twitter
+      title: Twitter
+      url: https://twitter.com/
+    - type: instagram
+      title: Instagram
+      url: https://www.instagram.com/
+    - type: github
+      title: Github
+      url: https://github.com/pjeby/libris-hugo/
+
 title: "Libris Hugo Theme"
-page_load_js: "assets/js/main.js"
 menu:
   main:
     - identifier: layouts
