@@ -1,36 +1,52 @@
-<section id="{{ include_dict.section.section_id }}" {{ classNames('block', 'features-block', 'outer', {'has-header': include_dict.section.title or include_dict.section.subtitle}) }}>
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" {{ classNames('block', 'block-grid', 'outer', {'has-header': section.title or section.subtitle}) }}>
   <div class="inner">
-    <div class="block-inside">
-      {% if include_dict.section.title or include_dict.section.subtitle %}
-      <div class="block-header">
-        {% if include_dict.section.title %}
-        <h2 class="block-title">{{ include_dict.section.title }}</h2>
-        {% endif %}
-        {% if include_dict.section.subtitle %}
-        <p class="block-subtitle">
-          {{ include_dict.section.subtitle | safe }}
-        </p>
-        {% endif %}
-      </div><!-- .block-header -->
+    {% if section.title or section.subtitle %}
+    <div class="block-header inner-sm">
+      {% if section.title %}
+      <h2 class="block-title">{{ section.title }}</h2>
       {% endif %}
-      {% if include_dict.section.featureslist %}
-      <div class="block-items">
-        {% for feature in include_dict.section.featureslist %}
-        <section class="block-item">
-          <div class="block-item-inside">
-            <h3 class="block-item-title line-left">{{ feature.title }}</h3>
-            <div class="block-item-text">
-              {{ feature.content | markdownify }}
+      {% if section.subtitle %}
+      <p class="block-subtitle">{{ section.subtitle | safe }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if section.grid_items %}
+    <div class="block-content">
+      <div {{ classNames('grid', {'grid-col-2': section.col_number == 'two', 'grid-col-3': section.col_number == 'three'}) }}>
+        {% for item in section.grid_items %}
+        <div class="grid-item">
+          <div class="grid-item-inside">
+            {% if item.image %}
+            <div class="grid-item-image">
+              <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" />
             </div>
-            {% if feature.actions %}
-              {% set include_dict = {'actions': feature.actions} %}
-              {% include "cta_buttons.html" %}
             {% endif %}
-          </div><!-- .block-item-inside -->
-        </section><!-- block-item -->
+            {% if item.title %}
+            <h3 class="grid-item-title line-left">
+              {% if item.title_url %}
+              <a href="{{ item.title_url | relative_url }}">{{ item.title }}</a>
+              {% else %}
+              {{ item.title }}
+              {% endif %}
+            </h3>
+            {% endif %}
+            {% if item.content %}
+            <div class="grid-item-content">
+              {{ item.content | markdownify }}
+            </div>
+            {% endif %}
+            {% if item.actions %}
+            <div class="grid-item-buttons">
+              {% set include_dict = {'actions': item.actions} %}
+              {% include "cta_buttons.html" %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
         {% endfor %}
-      </div><!-- .block-items -->
-      {% endif %}
-    </div><!-- .block-inside -->
-  </div><!-- .inner -->
-</section><!-- .features-block -->
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section><!-- .block -->

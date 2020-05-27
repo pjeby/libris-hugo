@@ -1,24 +1,30 @@
-<section id="{{ include_dict.section.section_id }}" class="block text-block outer">
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block block-text outer">
   <div class="inner">
-    <div class="block-inside">
-      {% if include_dict.section.image %}
-      <div class="block-preview">
-        <img class="thumbnail" src="{{ include_dict.section.image | relative_url }}" alt="{{ include_dict.section.title }}" />
-      </div><!-- .block-preview -->
+    <div {{ classNames('grid', 'grid-middle', 'grid-center', {'grid-swap': section.image and section.image_position == 'right'}) }}>
+      {% if section.image %}
+      <div class="grid-item block-image">
+        <img src="{{ section.image | relative_url }}" alt="{{ section.title }}" />
+      </div>
       {% endif %}
-      <div class="block-content">
-        <h2 class="block-title">{{ include_dict.section.title }}</h2>
-        <div class="block-text">
-          {{ include_dict.section.content | markdownify }}
-        </div>
-        {% if include_dict.section.actions %}
-        <div class="block-cta">
-          {% for action in include_dict.section.actions %}
-          <a href="{{ action.url | relative_url }}" class="button">{{ action.label }}</a>
-          {% endfor %}
+      <div class="grid-item block-body">
+        {% if section.title %}
+        <div class="block-header">
+          <h2 class="block-title">{{ section.title }}</h2>
         </div>
         {% endif %}
-      </div><!-- .block-content -->
-    </div><!-- .block-inside -->
-  </div><!-- .inner -->
-</section><!-- .text-block -->
+        {% if section.content %}
+        <div class="block-content">
+          {{ section.content | markdownify }}
+        </div>
+        {% endif %}
+        {% if section.actions %}
+        <div class="block-buttons">
+          {% set include_dict = {'actions': section.actions} %}
+          {% include "cta_buttons.html" %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section><!-- .block -->

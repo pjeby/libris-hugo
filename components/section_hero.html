@@ -1,22 +1,24 @@
-<section id="{{ include_dict.section.section_id }}" class="block hero-block bg-gradient outer">
-  {% if include_dict.section.image %}
-  <div class="bg-img" style="background-image: url('{{ include_dict.section.image | relative_url }}')"></div>
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block block-hero has-gradient outer">
+  {% if section.image %}
+  <div class="bg-img" style="background-image: url('{{ section.image | relative_url }}')"></div>
   {% endif %}
-  <div class="inner-small">
-    <div class="block-inside">
-      <div class="block-content">
-        <h2 class="block-title">{{ include_dict.section.title }}</h2>
-        <div class="block-text">
-          {{ include_dict.section.content | markdownify }}
-        </div>
-        {% if include_dict.section.actions %}
-        <div class="block-cta">
-          {% for action in include_dict.section.actions %}
-          <a href="{{ action.url | relative_url }}" class="button secondary">{{ action.label }}</a>
-          {% endfor %}
-        </div>
-        {% endif %}
-      </div><!-- .block-content -->
-    </div><!-- .block-inside -->
-  </div><!-- .inner-medium -->
-</section><!-- .hero-block -->
+  <div class="inner-sm">
+    {% if section.title %}
+    <div class="block-header">
+      <h1 class="block-title">{{ section.title }}</h1>
+    </div>
+    {% endif %}
+    {% if section.content %}
+    <div class="block-content">
+      {{ section.content | markdownify }}
+    </div>
+    {% endif %}
+    {% if section.actions %}
+    <div class="block-buttons">
+      {% set include_dict = {'actions': section.actions} %}
+      {% include "cta_buttons.html" %}
+    </div>
+    {% endif %}
+  </div>
+</section><!-- .block -->

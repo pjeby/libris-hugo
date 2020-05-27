@@ -1,23 +1,25 @@
-<section id="{{ include_dict.section.section_id }}" class="block cta-block outer">
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block block-cta outer">
   <div class="inner">
-    <div class="block-outside bg-gradient">
-      <div class="block-inside">
-        <div class="block-content">
-          <h2 class="block-title">{{ include_dict.section.title }}</h2>
-          {% if include_dict.section.subtitle %}
-          <p class="block-text">
-            {{ include_dict.section.subtitle | safe }}
-          </p>
+    <div class="has-gradient">
+      <div class="grid grid-middle grid-center">
+        {% if section.title or section.subtitle %}
+        <div class="grid-item block-header">
+          {% if section.title %}
+          <h2 class="block-title">{{ section.title }}</h2>
           {% endif %}
-        </div><!-- .block-content -->
-        {% if include_dict.section.actions %}
-        <div class="block-cta">
-          {% for action in include_dict.section.actions %}
-          <a href="{{ action.url | relative_url }}" class="button secondary">{{ action.label }}</a>
-          {% endfor %}
-        </div><!-- .block-cta -->
+          {% if section.subtitle %}
+          <p class="block-subtitle">{{ section.subtitle | safe }}</p>
+          {% endif %}
+        </div>
         {% endif %}
-      </div><!-- .block-inside -->
-    </div><!-- .block-outside -->
-  </div><!-- .inner -->
-</section><!-- .cta-block -->
+        {% if section.actions %}
+        <div class="grid-item block-buttons">
+          {% set include_dict = {'actions': section.actions} %}
+          {% include "cta_buttons.html" %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section><!-- .block -->
